@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Menu, X, Microscope } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import mlabLogo from '../../features/contact/images/MLab_logo1.png';
 import { Button } from '../ui/button';
 
 interface NavbarProps {
@@ -32,7 +33,7 @@ export const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
             className="flex-shrink-0 flex items-center cursor-pointer group"
             onClick={() => handleNavClick('home')}
           >
-            <Microscope className="w-6 h-6 text-[#344F1F] mr-2 group-hover:text-[#F4991A] transition-colors" />
+            <img src={mlabLogo} alt="MLab logo" className="w-6 h-6 mr-2 object-contain" />
             <span className="text-[#344F1F] text-lg sm:text-xl font-bold tracking-tight group-hover:text-[#F4991A] transition-colors">
               ロボットビジョン・Spatial AI（松岡）研究室
             </span>
