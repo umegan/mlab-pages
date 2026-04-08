@@ -67,7 +67,7 @@ export const HeroNew = ({ onNavigate }: HeroNewProps) => {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F4991A]/20 border border-[#F4991A] mb-8"
         >
           <Sparkles className="w-4 h-4 text-[#F4991A]" />
-          <span className="text-[#F4991A] text-sm font-bold">革新的なロボティクス研究</span>
+          <span className="text-[#F4991A] text-sm font-bold">Robot Vision × Spatial AI</span>
         </motion.div>
 
         {/* Main Heading */}
@@ -77,9 +77,9 @@ export const HeroNew = ({ onNavigate }: HeroNewProps) => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight"
         >
-          <span>未来のロボティクスを</span>
+          <span>見る。考える。</span>
           <br />
-          <span className="text-[#F4991A]">創造する研究室</span>
+          <span className="text-[#F4991A]">そして、動く。</span>
         </motion.h1>
 
         <motion.p
@@ -88,9 +88,9 @@ export const HeroNew = ({ onNavigate }: HeroNewProps) => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg sm:text-xl md:text-2xl text-white/80 mb-12 max-w-3xl mx-auto leading-relaxed"
         >
-          ロボットビジョン、自律システム、Spatial AIの最先端技術で
+          映像から現実を理解し、自律的に行動するロボット。
           <br className="hidden sm:block" />
-          次世代のイノベーションを推進します
+          人と機械が共存する世界の実現を目指します。
         </motion.p>
 
         {/* CTA Buttons */}
