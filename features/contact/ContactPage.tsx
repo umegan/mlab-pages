@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
-import { ExternalLink, Building2, GraduationCap } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+import mlabLogo from './images/MLab_logo1.png';
 
 export const ContactPage = () => {
   return (
@@ -43,7 +44,7 @@ export const ContactPage = () => {
             <div className="h-2 bg-[#344F1F]" />
             <div className="flex flex-col flex-1 p-12">
               <div className="w-20 h-20 rounded-full bg-[#344F1F]/10 flex items-center justify-center mb-7">
-                <Building2 className="w-10 h-10 text-[#344F1F]" />
+                <img src={mlabLogo} alt="MLab logo" className="w-12 h-12 object-contain" />
               </div>
               <h2 className="text-3xl font-bold text-[#344F1F] mb-5">学外の方</h2>
               <p className="text-[#344F1F]/65 text-lg leading-relaxed flex-1 mb-10">
@@ -72,7 +73,7 @@ export const ContactPage = () => {
             <div className="h-2 bg-[#F4991A]" />
             <div className="flex flex-col flex-1 p-12">
               <div className="w-20 h-20 rounded-full bg-[#F4991A]/10 flex items-center justify-center mb-7">
-                <GraduationCap className="w-10 h-10 text-[#F4991A]" />
+                <img src={mlabLogo} alt="MLab logo" className="w-12 h-12 object-contain" />
               </div>
               <h2 className="text-3xl font-bold text-[#344F1F] mb-5">学内の方</h2>
               <p className="text-[#344F1F]/65 text-lg leading-relaxed flex-1 mb-10">
