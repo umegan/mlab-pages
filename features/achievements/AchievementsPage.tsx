@@ -111,12 +111,12 @@ export const AchievementsPage = () => {
                                 {pub.title}
                             </h3>
                             <p className="text-[#344F1F]/80 mb-2">{pub.authors}</p>
-                            <p className="text-[#344F1F]/60 italic mb-4 text-sm">{pub.conference}</p>
+                            <p className="text-[#344F1F]/60 italic mb-4 text-sm">{pub.venue}</p>
                             
                             <div className="flex flex-wrap items-center gap-3">
                                 <span className="font-mono font-bold text-[#344F1F]">{pub.year}</span>
                                 <div className="h-4 w-px bg-[#344F1F]/20"></div>
-                                {pub.tags.map(tag => (
+                                {(pub.tags ?? []).map(tag => (
                                     <span key={tag} className="bg-[#F2EAD3] text-[#344F1F] text-xs px-2 py-1 rounded-full font-medium">
                                         {tag}
                                     </span>
