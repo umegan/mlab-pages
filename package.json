@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "import:publications:csv": "node scripts/importPublicationsFromCsv.mjs --csv research_data.csv"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.0",

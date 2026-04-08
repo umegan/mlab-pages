@@ -1,9 +1,7 @@
 {
-  "title": "Navigation Strategies for Mobile Manipulators in Dynamic Warehouses",
-  "authors": "Sakura Ito, Prof. Matsuoka",
-  "venue": "International Conference on Automated Planning and Scheduling (ICAPS)",
-  "year": 2022,
-  "type": "conference",
-  "tags": ["ROS", "Spatial AI"],
-  "abstract": "Novel navigation strategies for mobile manipulators operating in dynamic warehouse environments."
+  "title": "Reducing collision counts at intersections using reinforcement learning‑based adaptive speed control",
+  "authors": "Kaito Kumagae, Tenta Suzuki, Mao Tobisawa, Tomohiro Harada, Johei Matsuoka, Yuki Itoh, Clive Jancen Kawaoto, Kiyohiko Hattori",
+  "venue": "Artificial Life and Robotics",
+  "year": 2025,
+  "type": "journal"
 }

@@ -1,4 +1,4 @@
-# Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment
+# Automated Vehicle Approach to Traffic Control Using Reinforcement Learning - Influence of Map Information on Intersection Passage
 
 ## Metadata
 
@@ -14,7 +14,7 @@ This directory can contain publication files:
 ## Example Structure
 
 ```
-pub-001/
+pub-018/
 ├── metadata.json
 ├── paper.pdf
 ├── slides.pdf

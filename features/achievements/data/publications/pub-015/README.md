@@ -1,4 +1,4 @@
-# Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment
+# Optimization of Vehicle Collision Avoidance Behavior by Variable Directional Sensor Control Using Reinforcement Learning
 
 ## Metadata
 
@@ -14,7 +14,7 @@ This directory can contain publication files:
 ## Example Structure
 
 ```
-pub-001/
+pub-015/
 ├── metadata.json
 ├── paper.pdf
 ├── slides.pdf

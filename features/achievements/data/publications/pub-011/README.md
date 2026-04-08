@@ -1,4 +1,4 @@
-# Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment
+# Exploration of deep reinforcement learning method for cooperative control of connected automated vehicles at a roundabout
 
 ## Metadata
 
@@ -14,7 +14,7 @@ This directory can contain publication files:
 ## Example Structure
 
 ```
-pub-001/
+pub-011/
 ├── metadata.json
 ├── paper.pdf
 ├── slides.pdf

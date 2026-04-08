@@ -1,4 +1,4 @@
-# Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment
+# Reducing collision counts at intersections using reinforcement learning‑based adaptive speed control
 
 ## Metadata
 
@@ -14,7 +14,7 @@ This directory can contain publication files:
 ## Example Structure
 
 ```
-pub-001/
+pub-006/
 ├── metadata.json
 ├── paper.pdf
 ├── slides.pdf

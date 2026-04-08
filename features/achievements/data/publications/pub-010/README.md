@@ -1,4 +1,4 @@
-# Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment
+# Probabilistic Path Selection Method in Planetary Exploration: Improving Terrain Adaptability through Tethered Cooperative Rover Systems
 
 ## Metadata
 
@@ -14,7 +14,7 @@ This directory can contain publication files:
 ## Example Structure
 
 ```
-pub-001/
+pub-010/
 ├── metadata.json
 ├── paper.pdf
 ├── slides.pdf

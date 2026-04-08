@@ -1,4 +1,4 @@
-# Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment
+# Pheromone-Reward Reinforcement Learning for Trajectory Design of Multi-Agent: Evaluation Using Lane-less Self Driving as a Case Study
 
 ## Metadata
 
@@ -14,7 +14,7 @@ This directory can contain publication files:
 ## Example Structure
 
 ```
-pub-001/
+pub-009/
 ├── metadata.json
 ├── paper.pdf
 ├── slides.pdf
