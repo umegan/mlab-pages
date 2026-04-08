@@ -42,7 +42,7 @@ export const HeroNew = ({ onNavigate }: HeroNewProps) => {
       <div className="absolute inset-0 flex items-center overflow-hidden">
         <div
           className="flex items-center gap-2"
-          style={{ animation: 'marquee 50s linear infinite', width: 'max-content' }}
+          style={{ animation: 'marquee 20s linear infinite', width: 'max-content' }}
         >
           {marqueeImages.map((src, i) => (
             <img
