@@ -1,4 +1,4 @@
-# Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment
+# Cooperative autonomous vehicle control with deep reinforcement learning in lane-free roundabouts and its adaptability to various geometries
 
 ## Metadata
 
@@ -14,7 +14,7 @@ This directory can contain publication files:
 ## Example Structure
 
 ```
-pub-001/
+pub-012/
 ├── metadata.json
 ├── paper.pdf
 ├── slides.pdf

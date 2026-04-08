@@ -1,10 +1,7 @@
 {
-  "title": "Development of Automated People Counting System using Line Detection",
-  "authors": "Taro Yamada, Hanako Suzuki, Prof. Matsuoka",
-  "venue": "IEEE International Conference on Robotics and Automation (ICRA)",
-  "year": 2024,
-  "type": "conference",
-  "tags": ["Robot Vision", "Image Processing"],
-  "abstract": "This paper presents an automated system for counting people using advanced line detection algorithms.",
-  "code_url": "https://github.com/example/people-counting"
+  "title": "Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment",
+  "authors": "Yuki Itoh, Tomohiro Harada, Johei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
+  "venue": "Artificial Life and Robotics",
+  "year": 2026,
+  "type": "journal"
 }

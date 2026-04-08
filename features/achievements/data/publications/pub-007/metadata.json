@@ -1,9 +1,7 @@
 {
-  "title": "Generative Models for Synthetic Data Creation in Industrial Settings",
-  "authors": "Takumi Watanabe, Prof. Matsuoka",
-  "venue": "NeurIPS Workshop on Generative AI",
-  "year": 2021,
-  "type": "workshop",
-  "tags": ["Image Processing", "Digital Twin"],
-  "abstract": "We present generative models for creating high-quality synthetic training data for industrial applications."
+  "title": "Efficient and Safe Bidirectional Traffic Control in Lane-less Environments Using Global Reward and Curriculum Learning",
+  "authors": "Mao Tobisawa, Tenta Suzuki, Clive Jancen Kawaoto,Yuki Itoh, Kaito Kumagae, Tomohiro Harada, Johei Matsuoka, and Kiyohiko Hattori .",
+  "venue": "Proceedings of the 9th International Symposium on Swarm Behavior and Bio-Inspired Robotics 2025 (SWARM2025)",
+  "year": 2025,
+  "type": "conference"
 }

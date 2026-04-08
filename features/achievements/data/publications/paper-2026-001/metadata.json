@@ -3,5 +3,6 @@
   "authors": "Yuki Itoh, Tomohiro Harada, Johei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
   "venue": "Artificial Life and Robotics",
   "year": 2026,
-  "type": "journal"
+  "type": "journal",
+  "draft": true
 }

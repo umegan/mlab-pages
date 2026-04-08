@@ -1,4 +1,4 @@
-# Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment
+# Efficient and Safe Bidirectional Traffic Control in Lane-less Environments Using Global Reward and Curriculum Learning
 
 ## Metadata
 
@@ -14,7 +14,7 @@ This directory can contain publication files:
 ## Example Structure
 
 ```
-pub-001/
+pub-007/
 ├── metadata.json
 ├── paper.pdf
 ├── slides.pdf

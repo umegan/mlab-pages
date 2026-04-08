@@ -1,9 +1,7 @@
 {
-  "title": "Sim2Real Transfer for Industrial Robot Assembly Tasks via Digital Twins",
-  "authors": "Kenji Sato, Prof. Matsuoka",
-  "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
-  "year": 2024,
-  "type": "conference",
-  "tags": ["ROS", "Digital Twin"],
-  "abstract": "We propose a novel approach for transferring simulation-trained models to real robots using digital twin technology."
+  "title": "Object Pose Estimation Method in Close-up Viewpoints for Robots: Proposal and Validation",
+  "authors": "Hikaru Chino, and Johei Matsuoka",
+  "venue": "Proceedings of the 2025 International Workshop on Smart Info-Media Systems in Asia (SISA2025)",
+  "year": 2025,
+  "type": "conference"
 }

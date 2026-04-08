@@ -1,4 +1,4 @@
-# Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment
+# Supervised Collaborative Learning System Using a Wire-Connected Two-Wheeled Rover for Planetary Exploration
 
 ## Metadata
 
@@ -14,7 +14,7 @@ This directory can contain publication files:
 ## Example Structure
 
 ```
-pub-001/
+pub-017/
 ├── metadata.json
 ├── paper.pdf
 ├── slides.pdf
