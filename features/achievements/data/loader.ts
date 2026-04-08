@@ -21,7 +21,7 @@ const publicationMetadataModules = import.meta.glob('./publications/*/metadata.j
   eager: true,
 }) as Record<string, PublicationMetadataModule>;
 
-const publicationsDataMap: Record<string, PublicationMetadata> = Object.fromEntries(
+const publicationMetadataById: Record<string, PublicationMetadata> = Object.fromEntries(
   Object.entries(publicationMetadataModules).map(([path, moduleValue]) => [
     extractPublicationId(path),
     unwrapMetadata(moduleValue),
@@ -36,7 +36,7 @@ const RECENT_YEAR_COUNT = 4;
 export function getAllPublications(): Publication[] {
   const publications: Publication[] = [];
 
-  for (const [id, metadata] of Object.entries(publicationsDataMap)) {
+  for (const [id, metadata] of Object.entries(publicationMetadataById)) {
     // Exclude drafts
     if (metadata.draft) continue;
 
@@ -78,7 +78,7 @@ export function getYearFilterOptions(pubs: Publication[]): string[] {
  * Get publication by ID
  */
 export function getPublicationById(id: string): Publication | null {
-  const metadata = publicationsDataMap[id];
+  const metadata = publicationMetadataById[id];
   if (!metadata) return null;
 
   return {

@@ -72,9 +72,3 @@ export const TECH_TAGS = [
 ] as const;
 
 export type TechTag = typeof TECH_TAGS[number];
-
-/**
- * フィルタリング用の年リスト
- * Years list for filtering
- */
-export const YEARS = ['All', '2025', '2024', '2023', '2022', 'Prior to 2021'] as const;

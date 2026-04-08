@@ -185,18 +185,7 @@ node scripts/addPublicationDirectory.mjs
 
 3. **ファイルを追加（オプション）:** 作成されたディレクトリにPDF、スライド、ポスターなどを配置し、`metadata.json` の対応するフィールドにファイル名を記述
 
-4. **データローダーを更新:** `/features/achievements/data/loader.ts` の `publicationsDataMap` に新しいエントリを追加
-
-   ```typescript
-   'pub-009': {
-     title: "New Paper Title",
-     authors: "Author Names",
-     venue: "Conference Name",
-     year: 2024,
-     type: "conference",
-     // ... その他のフィールド
-   },
-   ```
+4. **データローダーの手動更新は不要:** `features/achievements/data/publications/` 配下に `metadata.json` を追加すると、`loader.ts` が自動で読み込みます。
 
 ---
 
@@ -270,31 +259,6 @@ export const TECH_TAGS = [
 
 ---
 
-## 🔄 旧システムからの移行 / Migration from Old System
-
-旧システム（単一ファイル）から新システム（ディレクトリベース）への移行手順：
-
-### 自動移行（推奨）
-
-移行スクリプトを実行して、既存データを自動的に新しい構造に変換：
-
-```bash
-# ニュースを移行
-node scripts/migrateNews.mjs
-
-# 研究業績を移行
-node scripts/migratePublications.mjs
-```
-
-### 手動移行
-
-1. 既存の `newsData.ts` または `publicationsData.ts` からデータをコピー
-2. 各アイテムに対して新しいディレクトリを作成
-3. `metadata.json` を作成してデータを記述
-4. loader.ts を更新
-
----
-
 ## 🚧 今後の拡張 / Future Enhancements
 
 ### 計画中の機能 / Planned Features
@@ -312,7 +276,7 @@ node scripts/migratePublications.mjs
 
 ### Q: 新しいニュース/論文が表示されない
 
-A: `loader.ts` の `newsDataMap` / `publicationsDataMap` に新しいエントリを追加したか確認してください。
+A: ニュースは `loader.ts` の `newsDataMap` にエントリを追加したか確認してください。研究業績は `features/achievements/data/publications/` 配下の `metadata.json` の配置とJSON形式を確認してください。
 
 ### Q: 画像が表示されない
 
