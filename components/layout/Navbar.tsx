@@ -31,7 +31,7 @@ export const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
             className="flex-shrink-0 flex items-center cursor-pointer group"
             onClick={() => handleNavClick('home')}
           >
-            <img src={mlabLogo} alt="MLab logo" className="h-14 w-auto mr-3 object-contain" />
+            <img src={mlabLogo} alt="MLab logo" className="h-20 w-auto mr-3 object-contain" />
             <span className="text-[#344F1F] text-lg sm:text-xl font-bold tracking-tight group-hover:text-[#F4991A] transition-colors">
               ロボットビジョン・Spatial AI（松岡）研究室
             </span>

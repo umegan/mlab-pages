@@ -14,7 +14,6 @@ const heroImages = [
   '/images/hero/image_8.jpg',
 ];
 
-// duplicate for seamless loop
 const marqueeImages = [...heroImages, ...heroImages];
 
 interface HeroNewProps {
@@ -39,26 +38,26 @@ export const HeroNew = ({ onNavigate }: HeroNewProps) => {
     <section className="relative overflow-hidden bg-[#344F1F] pt-20 min-h-[85vh] flex items-center justify-center">
 
       {/* ── Scrolling image strip ── */}
-      <div className="absolute inset-0 flex items-stretch">
+      {/* Fix: images displayed at natural aspect ratio (h-[80vh] w-auto) → 80%+ visible */}
+      <div className="absolute inset-0 flex items-center overflow-hidden">
         <div
-          className="flex h-full"
-          style={{ animation: 'marquee 40s linear infinite', width: 'max-content' }}
+          className="flex items-center gap-2"
+          style={{ animation: 'marquee 50s linear infinite', width: 'max-content' }}
         >
           {marqueeImages.map((src, i) => (
-            <div key={i} className="relative h-full w-[420px] flex-shrink-0">
-              <img
-                src={src}
-                alt=""
-                className="h-full w-full object-cover"
-                draggable={false}
-              />
-            </div>
+            <img
+              key={i}
+              src={src}
+              alt=""
+              className="h-[80vh] w-auto flex-shrink-0 rounded-lg"
+              draggable={false}
+            />
           ))}
         </div>
       </div>
 
       {/* ── Dark overlay ── */}
-      <div className="absolute inset-0 bg-[#344F1F]/75" />
+      <div className="absolute inset-0 bg-[#344F1F]/72" />
 
       {/* ── Dot pattern overlay ── */}
       <div
@@ -79,15 +78,16 @@ export const HeroNew = ({ onNavigate }: HeroNewProps) => {
 
       {/* ── Content ── */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12">
-        {/* Badge */}
+
+        {/* Badge — frosted glass for readability */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#F4991A]/20 border border-[#F4991A] mb-8"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-black/40 backdrop-blur-md border border-white/25 mb-8"
         >
           <Sparkles className="w-4 h-4 text-[#F4991A]" />
-          <span className="text-[#F4991A] text-sm font-bold">Robot Vision × Spatial AI</span>
+          <span className="text-white text-sm font-bold tracking-wide">Robot Vision × Spatial AI</span>
         </motion.div>
 
         {/* Heading */}
@@ -138,22 +138,23 @@ export const HeroNew = ({ onNavigate }: HeroNewProps) => {
             </Button>
           </motion.div>
         </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <ChevronDown className="w-8 h-8 text-[#F4991A]" />
-          </motion.div>
-        </motion.div>
       </div>
+
+      {/* ── Scroll indicator — section底部に固定 ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <ChevronDown className="w-8 h-8 text-[#F4991A]" />
+        </motion.div>
+      </motion.div>
+
     </section>
   );
 };
