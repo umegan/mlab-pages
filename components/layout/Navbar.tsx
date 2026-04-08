@@ -10,7 +10,6 @@ interface NavbarProps {
 export const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuItems = [
-    { label: '概要', route: 'about' },
     { label: 'ニュース', route: 'news' },
     { label: '研究', route: 'research' },
     { label: '業績', route: 'achievements' },

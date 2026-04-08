@@ -6,9 +6,9 @@ import { ResearchAxes } from './features/home/components/ResearchAxes';
 import { FutureLab } from './features/home/components/FutureLab';
 import { NewsModern } from './features/home/components/NewsModern';
 import { RecentAchievements } from './features/home/components/RecentAchievements';
+import { LabIntro } from './features/home/components/LabIntro';
 
 // Pages
-import { AboutPage } from './features/about/AboutPage';
 import { NewsPage } from './features/news/NewsPage';
 import { NewsDetailPage } from './features/news/NewsDetailPage';
 import { ResearchPage } from './features/research/ResearchPage';
@@ -31,14 +31,13 @@ function App() {
         return (
           <>
             <HeroNew onNavigate={setCurrentPage} />
+            <LabIntro onNavigate={setCurrentPage} />
             <ResearchAxes />
             <FutureLab />
             <NewsModern onNavigate={setCurrentPage} onSelectNews={navigateToNewsDetail} />
             <RecentAchievements onNavigate={setCurrentPage} />
           </>
         );
-      case 'about':
-        return <AboutPage />;
       case 'news':
         return <NewsPage />;
       case 'news-detail':
@@ -57,6 +56,7 @@ function App() {
         return (
           <>
             <HeroNew onNavigate={setCurrentPage} />
+            <LabIntro onNavigate={setCurrentPage} />
             <ResearchAxes />
             <FutureLab />
             <NewsModern onNavigate={setCurrentPage} onSelectNews={navigateToNewsDetail} />
