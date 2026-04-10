@@ -538,7 +538,7 @@ export const AchievementsPage = () => {
                   <span className="font-semibold text-[#344F1F]">発行・発表日:</span> {selectedDateDisplay}
                 </div>
               )}
-              <div className="bg-[#F9F5F0] rounded-md px-3 py-2">
+              <div className="bg-[#F9F5F0] rounded-md px-3 py-2 md:col-span-2 break-all">
                 <span className="font-semibold text-[#344F1F]">業績区分:</span>{' '}
                 {selectedPublicationClassValue
                   ? PUBLICATION_CLASS_LABELS[selectedPublicationClassValue]
