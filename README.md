@@ -57,7 +57,7 @@ node scripts/addNewsDirectory.mjs
 node scripts/addPublicationDirectory.mjs
 ```
 
-対話形式で情報を入力し、`/features/achievements/data/loader.ts` を更新してください。
+対話形式で情報を入力すると、`features/achievements/data/publications/` にディレクトリと `metadata.json` が作成され、ページには自動反映されます。
 
 詳細は [QUICK_START.md](./QUICK_START.md) を参照してください。
 

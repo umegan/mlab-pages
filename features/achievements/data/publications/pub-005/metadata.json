@@ -1,9 +1,0 @@
-{
-  "title": "Efficient 3D Object Detection in Cluttered Environments",
-  "authors": "Hiroshi Yamamoto, Prof. Matsuoka",
-  "venue": "European Conference on Computer Vision (ECCV)",
-  "year": 2022,
-  "type": "conference",
-  "tags": ["Image Processing", "Point Cloud"],
-  "abstract": "An efficient approach to 3D object detection in challenging cluttered scenarios."
-}

@@ -1,9 +1,0 @@
-{
-  "title": "Survey on Visual SLAM Techniques for Indoor Environments",
-  "authors": "Prof. Matsuoka, Taro Yamada",
-  "venue": "Journal of Robotics and Mechatronics",
-  "year": 2020,
-  "type": "journal",
-  "tags": ["Spatial AI", "Robot Vision", "SLAM"],
-  "abstract": "A comprehensive survey of visual SLAM methods for indoor robot navigation."
-}
