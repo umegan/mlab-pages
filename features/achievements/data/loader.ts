@@ -1,6 +1,9 @@
 import { Publication, PublicationMetadata } from '../types';
 
 type PublicationMetadataModule = PublicationMetadata | { default: PublicationMetadata };
+const YEAR_MONTH_REGEX = /((?:19|20)\d{2})[./-](\d{1,2})/;
+const YEAR_MONTH_JA_REGEX = /((?:19|20)\d{2})年(\d{1,2})月/;
+const YEAR_REGEX = /((?:19|20)\d{2})/;
 
 function extractPublicationId(filePath: string): string {
   const normalizedPath = filePath.replace(/\\/g, '/');
@@ -30,6 +33,37 @@ function unwrapMetadata(moduleValue: PublicationMetadataModule): PublicationMeta
     return moduleValue.default;
   }
   return moduleValue;
+}
+
+function extractPublishedYearMonth(metadata: PublicationMetadata): { year: number; month: number } {
+  const dateRaw = metadata.published_at?.trim() || metadata.year_raw?.trim() || '';
+
+  const yearMonthMatch = dateRaw.match(YEAR_MONTH_REGEX);
+  if (yearMonthMatch) {
+    const year = Number.parseInt(yearMonthMatch[1], 10);
+    const month = Number.parseInt(yearMonthMatch[2], 10);
+    if (month >= 1 && month <= 12) {
+      return { year, month };
+    }
+    return { year, month: 0 };
+  }
+
+  const yearMonthJaMatch = dateRaw.match(YEAR_MONTH_JA_REGEX);
+  if (yearMonthJaMatch) {
+    const year = Number.parseInt(yearMonthJaMatch[1], 10);
+    const month = Number.parseInt(yearMonthJaMatch[2], 10);
+    if (month >= 1 && month <= 12) {
+      return { year, month };
+    }
+    return { year, month: 0 };
+  }
+
+  const yearMatch = dateRaw.match(YEAR_REGEX);
+  if (yearMatch) {
+    return { year: Number.parseInt(yearMatch[1], 10), month: 0 };
+  }
+
+  return { year: metadata.year, month: 0 };
 }
 
 const publicationMetadataModules = import.meta.glob('./publications/**/metadata.json', {
@@ -66,10 +100,17 @@ export function getAllPublications(): Publication[] {
     });
   }
 
-  // Sort by year (newest first), then by ID for stable order
+  // Sort by published date (newest first). If month is unknown, treat as month 0.
+  // Then sort by ID for stable order.
   return publications.sort((a, b) => {
-    if (b.year !== a.year) {
-      return b.year - a.year;
+    const aDate = extractPublishedYearMonth(a);
+    const bDate = extractPublishedYearMonth(b);
+
+    if (bDate.year !== aDate.year) {
+      return bDate.year - aDate.year;
+    }
+    if (bDate.month !== aDate.month) {
+      return bDate.month - aDate.month;
     }
     return b.id.localeCompare(a.id);
   });

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { Filter, Check, ChevronLeft, ChevronRight, ChevronDown, X } from 'lucide-react';
 import { getAllPublications, getYearFilterOptions, filterByYear, filterByTags } from './data/loader';
 import { TECH_TAGS, Publication, PublicationClass } from './types';
@@ -174,6 +174,7 @@ export const AchievementsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
   const [selectedPublication, setSelectedPublication] = useState<Publication | null>(null);
+  const hasMountedRef = useRef(false);
 
   const toggleTag = (tag: string) => {
     setSelectedTags(prev => 
@@ -229,6 +230,16 @@ export const AchievementsPage = () => {
       setCurrentPage(totalPages);
     }
   }, [currentPage, totalPages]);
+
+  useEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [currentPage]);
 
   const closeDetailModal = () => {
     setSelectedPublication(null);
