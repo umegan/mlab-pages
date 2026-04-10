@@ -1,10 +1,14 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
-import { Filter, Check, ChevronLeft, ChevronRight, ChevronDown, X } from 'lucide-react';
+import { Filter, Check, ChevronLeft, ChevronRight, ChevronDown, X, Award } from 'lucide-react';
 import { getAllPublications, getYearFilterOptions, filterByYear, filterByTags } from './data/loader';
 import { TECH_TAGS, Publication, PublicationClass } from './types';
 
-const DEFAULT_PAGE_SIZE = 10;
+const DEFAULT_PAGE_SIZE = 20;
 const PAGE_SIZE_OPTIONS = [5, 10, 20, 50];
+const LIST_DENSITY_OPTIONS = [
+  { value: 'comfortable', label: '標準' },
+  { value: 'compact', label: 'コンパクト' },
+] as const;
 const JAPANESE_CHARACTER_REGEX = /[\u3040-\u30ff\u3400-\u9fff]/;
 const PUBLICATION_CLASS_OPTIONS = [
   { value: 'all', label: 'すべて (All)' },
@@ -17,6 +21,7 @@ const PUBLICATION_CLASS_OPTIONS = [
   { value: 'other', label: 'その他 (Other)' },
 ] as const;
 type PublicationClassFilter = typeof PUBLICATION_CLASS_OPTIONS[number]['value'];
+type ListDensity = typeof LIST_DENSITY_OPTIONS[number]['value'];
 const PUBLICATION_CLASS_LABELS: Record<PublicationClass, string> = {
   international_conference: '国際学会 (International Conference)',
   domestic_conference: '国内学会 (Domestic Conference)',
@@ -173,6 +178,7 @@ export const AchievementsPage = () => {
   const [isTagFilterOpen, setIsTagFilterOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(DEFAULT_PAGE_SIZE);
+  const [listDensity, setListDensity] = useState<ListDensity>('comfortable');
   const [selectedPublication, setSelectedPublication] = useState<Publication | null>(null);
   const hasMountedRef = useRef(false);
 
@@ -419,30 +425,58 @@ export const AchievementsPage = () => {
                     ))}
                   </select>
                 </div>
+                <div className="flex items-center gap-2">
+                  <label htmlFor="list-density-select" className="text-[#344F1F]/70">表示:</label>
+                  <select
+                    id="list-density-select"
+                    value={listDensity}
+                    onChange={(e) => setListDensity(e.target.value as ListDensity)}
+                    className="bg-white border border-[#344F1F]/20 rounded-md px-2 py-1 text-[#344F1F] focus:outline-none focus:ring-2 focus:ring-[#F4991A]/40"
+                  >
+                    {LIST_DENSITY_OPTIONS.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
             </div>
 
-            <div className="space-y-6">
+            <div className={listDensity === 'compact' ? 'space-y-3' : 'space-y-6'}>
               {filteredPublications.length > 0 ? (
                 paginatedPublications.map(pub => (
                   <button
                     key={pub.id}
                     type="button"
                     onClick={() => setSelectedPublication(pub)}
-                    className="w-full text-left bg-white p-6 md:p-8 border-b border-[#344F1F]/20 hover:border-[#F4991A] transition-colors group cursor-pointer"
+                    className={`w-full text-left bg-white border-b border-[#344F1F]/20 hover:border-[#F4991A] transition-colors group cursor-pointer ${
+                      listDensity === 'compact' ? 'p-3 md:p-4' : 'p-6 md:p-8'
+                    }`}
                   >
                     <div>
-                        <h3 className="text-xl font-bold text-[#344F1F] mb-2 leading-tight group-hover:text-[#F4991A] transition-colors">
+                        <h3 className={`font-bold text-[#344F1F] leading-tight group-hover:text-[#F4991A] transition-colors ${
+                          listDensity === 'compact' ? 'text-lg mb-1' : 'text-xl mb-2'
+                        }`}>
                             {pub.title}
                         </h3>
-                        <p className="text-[#344F1F]/80 mb-2">{pub.authors}</p>
-                        <p className="text-[#344F1F]/60 italic mb-4 text-sm">{pub.venue}</p>
+                        <p className={`text-[#344F1F]/80 ${listDensity === 'compact' ? 'mb-1 text-sm' : 'mb-2'}`}>{pub.authors}</p>
+                        <p className={`text-[#344F1F]/60 italic text-sm ${listDensity === 'compact' ? 'mb-2' : 'mb-4'}`}>{pub.venue}</p>
                         
-                        <div className="flex flex-wrap items-center gap-3">
+                        <div className={`flex flex-wrap items-center ${listDensity === 'compact' ? 'gap-2' : 'gap-3'}`}>
                             <span className="font-mono font-bold text-[#344F1F]">{getListDateLabel(pub)}</span>
                             <div className="h-4 w-px bg-[#344F1F]/20"></div>
                             <span className="bg-white border border-[#344F1F]/20 text-[#344F1F] text-xs px-2 py-1 rounded-full font-medium">
                               {PUBLICATION_CLASS_BADGE[getPublicationClass(pub)]}
                             </span>
+                            {pub.award?.trim() && (
+                                <span
+                                  title={pub.award}
+                                  className="inline-flex items-center gap-1 bg-[#FFF3D6] text-[#A76200] border border-[#F4991A]/40 text-xs px-2 py-1 rounded-full font-semibold"
+                                >
+                                  <Award className="w-3.5 h-3.5" />
+                                  受賞
+                                </span>
+                            )}
                             {(pub.tags ?? []).map(tag => (
                                 <span key={tag} className="bg-[#F2EAD3] text-[#344F1F] text-xs px-2 py-1 rounded-full font-medium">
                                     {tag}
