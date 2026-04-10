@@ -10,10 +10,23 @@
   "pages": "603",
   "note": "レター",
   "link": "https://www.scopus.com/pages/publications/85120816885",
-  "publication_class": "domestic_journal",
-  "type": "journal",
   "year_raw": "2021",
   "year_detected": true,
+  "publication_class": "domestic_journal",
+  "type": "journal",
+  "doi": "",
+  "arxiv": "",
+  "project": "",
+  "code_url": "",
+  "data_url": "",
+  "award": "",
+  "bibtex": "",
+  "pdf": "",
+  "slides": "",
+  "poster": "",
+  "video": "",
+  "tags": [],
+  "abstract": "",
   "source_file": "論文.csv",
   "source_category": "paper",
   "source_row_number": 2,
@@ -26,5 +39,6 @@
     "著者区分": "責任著者",
     "備考": "レター",
     "リンク": "https://www.scopus.com/pages/publications/85120816885"
-  }
+  },
+  "draft": false
 }

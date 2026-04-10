@@ -10,10 +10,23 @@
   "pages": "431-443",
   "note": "",
   "link": "https://www.scopus.com/pages/publications/85189706994",
-  "publication_class": "international_journal",
-  "type": "journal",
   "year_raw": "2024",
   "year_detected": true,
+  "publication_class": "international_journal",
+  "type": "journal",
+  "doi": "",
+  "arxiv": "",
+  "project": "",
+  "code_url": "",
+  "data_url": "",
+  "award": "",
+  "bibtex": "",
+  "pdf": "",
+  "slides": "",
+  "poster": "",
+  "video": "",
+  "tags": [],
+  "abstract": "",
   "source_file": "論文.csv",
   "source_category": "paper",
   "source_row_number": 6,
@@ -26,5 +39,6 @@
     "著者区分": "筆頭著者(指導学生)",
     "備考": "",
     "リンク": "https://www.scopus.com/pages/publications/85189706994"
-  }
+  },
+  "draft": false
 }

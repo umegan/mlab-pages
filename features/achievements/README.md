@@ -103,33 +103,45 @@ features/achievements/
 
 ## 5. `metadata.json` 構造
 
-主なキー（必要なものだけを入れればよい）:
+`types.ts` の `PublicationMetadata` で定義された、登録可能なキーは以下の全項目です。
 
-- 識別:
-  - `id`
-  - `slug_base`
-  - `slug_sequence`
-- 基本情報:
-  - `title`
-  - `authors`
-  - `venue`
-  - `year`
-  - `published_at`
-  - `pages`
-  - `note`
-  - `link`
-  - `publication_class`
-  - `type`
-- 追加情報:
-  - `award`
-  - `tags`
-  - `abstract`
-  - `doi`, `arxiv`, `code_url`, `data_url`, `project`, `video`, `pdf`, `slides`, `poster`, `bibtex`
-- 取込トレース（CSV取込時）:
-  - `source_file`
-  - `source_category`
-  - `source_row_number`
-  - `source_record`
+| キー | 型 | 説明 |
+| --- | --- | --- |
+| `id` | `string` | 業績ID。ディレクトリ名にも使う一意キー。 |
+| `slug_base` | `string` | 採番前のIDベース。例: `dc-202603-ipsj` |
+| `slug_sequence` | `number` | `slug_base` 重複時の連番。 |
+| `title` | `string` | タイトル。 |
+| `authors` | `string` | 著者文字列。 |
+| `venue` | `string` | 発行元・会議名・論文誌名。 |
+| `year` | `number` | 年。未検出時は `0`。 |
+| `published_at` | `string` | 発行・発表日（`YYYY.MM` / `YYYY.MM.DD` / `YYYY年M月` など生値）。 |
+| `pages` | `string` | ページ情報。 |
+| `note` | `string` | 備考。 |
+| `link` | `string` | 代表URL。 |
+| `year_raw` | `string` | 年月の元文字列。 |
+| `year_detected` | `boolean` | `year` を抽出できたかどうか。 |
+| `publication_class` | `PublicationClass` | 業績区分。 |
+| `type` | `PublicationType` | 形態区分。 |
+| `doi` | `string` | DOI。 |
+| `arxiv` | `string` | arXiv ID / URL。 |
+| `project` | `string` | プロジェクトページURL。 |
+| `code_url` | `string` | コードURL。 |
+| `data_url` | `string` | データセットURL。 |
+| `award` | `string` | 受賞情報。 |
+| `bibtex` | `string` | BibTeXファイル名または参照文字列。 |
+| `pdf` | `string` | PDFファイル名またはURL。 |
+| `slides` | `string` | スライドファイル名またはURL。 |
+| `poster` | `string` | ポスターファイル名またはURL。 |
+| `video` | `string` | 動画URL。 |
+| `tags` | `string[]` | 技術タグ配列。 |
+| `abstract` | `string` | Abstract本文。改行可。 |
+| `source_file` | `string` | 取込元CSVファイル名。 |
+| `source_category` | `string` | 取込元カテゴリ（`paper` / `domestic` / `international` / `other`）。 |
+| `source_row_number` | `number` | 元CSV上の行番号（ヘッダを1行目とする）。 |
+| `source_record` | `Record<string, string>` | 元CSVレコード（列名→値の辞書）。 |
+| `draft` | `boolean` | 下書きフラグ。`true` なら一覧表示対象外。 |
+
+`tmp/import_publications_from_tmp_csv.py` は、上記キーをすべて `metadata.json` に出力します。値がない項目もキーは保持されます（例: 空文字、空配列、`false`）。
 
 ### `publication_class` の値
 
@@ -171,13 +183,14 @@ CSV取込スクリプトでは次の形式でIDを作成します。
 5. 必要に応じて `published_at`, `pages`, `link`, `tags`, `abstract` などを追記。
 6. 開発サーバで一覧・詳細表示を確認。
 
-### B. CSVから一括再生成する（既存データを全削除して再作成）
+### B. CSVから一括取込する（既存IDは保持）
 
 対象CSV:
 
 - `tmp/論文.csv`
 - `tmp/国内学会.csv`
 - `tmp/国際学会.csv`
+- `tmp/情報処理学会88.csv`
 - `tmp/その他.csv`
 
 実行:
@@ -188,6 +201,6 @@ python3 tmp/import_publications_from_tmp_csv.py
 
 注意:
 
-- このスクリプトは `features/achievements/data/publications` 配下を一度空にしてから再生成します。
-- 既存の手修正データがある場合は、実行前にバックアップしてください。
+- 既存の `id` と同じディレクトリがすでにある場合、その業績は上書き・削除されずスキップされます。
+- 既存データは保持され、新しい `id` の業績のみ追加されます。
 - 年月から年が抽出できない行は `others/` バケットに出力されます。

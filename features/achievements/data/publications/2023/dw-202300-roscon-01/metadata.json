@@ -10,10 +10,23 @@
   "pages": "",
   "note": "",
   "link": "",
-  "publication_class": "domestic_workshop",
-  "type": "workshop",
   "year_raw": "2023",
   "year_detected": true,
+  "publication_class": "domestic_workshop",
+  "type": "workshop",
+  "doi": "",
+  "arxiv": "",
+  "project": "",
+  "code_url": "",
+  "data_url": "",
+  "award": "",
+  "bibtex": "",
+  "pdf": "",
+  "slides": "",
+  "poster": "",
+  "video": "",
+  "tags": [],
+  "abstract": "",
   "source_file": "その他.csv",
   "source_category": "other",
   "source_row_number": 2,
@@ -24,5 +37,6 @@
     "年月": "2023",
     "ページ等": "",
     "備考": ""
-  }
+  },
+  "draft": false
 }

@@ -10,10 +10,23 @@
   "pages": "741-742",
   "note": "",
   "link": "",
-  "publication_class": "domestic_conference",
-  "type": "conference",
   "year_raw": "2022.1",
   "year_detected": true,
+  "publication_class": "domestic_conference",
+  "type": "conference",
+  "doi": "",
+  "arxiv": "",
+  "project": "",
+  "code_url": "",
+  "data_url": "",
+  "award": "",
+  "bibtex": "",
+  "pdf": "",
+  "slides": "",
+  "poster": "",
+  "video": "",
+  "tags": [],
+  "abstract": "",
   "source_file": "国内学会.csv",
   "source_category": "domestic",
   "source_row_number": 4,
@@ -23,5 +36,6 @@
     "発行元、大会": "情報処理学会第 84 回全国大会講演論文集",
     "年月": "2022.1",
     "ページ等": "741-742"
-  }
+  },
+  "draft": false
 }

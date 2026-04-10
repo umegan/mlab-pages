@@ -6,7 +6,6 @@ import csv
 import hashlib
 import json
 import re
-import shutil
 import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -18,6 +17,7 @@ CSV_SOURCES = [
     {"path": ROOT_DIR / "tmp" / "論文.csv", "category": "paper", "type": "journal"},
     {"path": ROOT_DIR / "tmp" / "国内学会.csv", "category": "domestic", "type": "conference"},
     {"path": ROOT_DIR / "tmp" / "国際学会.csv", "category": "international", "type": "conference"},
+    {"path": ROOT_DIR / "tmp" / "情報処理学会88.csv", "category": "domestic", "type": "conference"},
     {"path": ROOT_DIR / "tmp" / "その他.csv", "category": "other", "type": "workshop"},
 ]
 
@@ -267,6 +267,65 @@ def clean_row(row: dict[str, str | None]) -> dict[str, str]:
     return cleaned
 
 
+def parse_tags(row: dict[str, str]) -> list[str]:
+    raw_tags = row.get("タグ", "")
+    if not raw_tags:
+        return []
+
+    normalized = raw_tags.replace("、", ",").replace(";", ",")
+    tags = [normalize_text(tag) for tag in normalized.split(",")]
+    return [tag for tag in tags if tag]
+
+
+def build_metadata(
+    publication_id: str,
+    slug_base: str,
+    slug_sequence: int,
+    row: dict[str, str],
+    source: dict[str, str | Path],
+    year: int,
+    year_raw: str,
+    year_detected: bool,
+    publication_class: str,
+    row_number: int,
+) -> dict:
+    return {
+        "id": publication_id,
+        "slug_base": slug_base,
+        "slug_sequence": slug_sequence,
+        "title": row.get("タイトル", ""),
+        "authors": row.get("著者", ""),
+        "venue": row.get("発行元、大会", ""),
+        "year": year,
+        "published_at": row.get("年月", ""),
+        "pages": row.get("ページ等", ""),
+        "note": row.get("備考", ""),
+        "link": row.get("リンク", ""),
+        "year_raw": year_raw,
+        "year_detected": year_detected,
+        "publication_class": publication_class,
+        "type": str(source["type"]),
+        "doi": row.get("DOI", ""),
+        "arxiv": row.get("arXiv", ""),
+        "project": row.get("Project", ""),
+        "code_url": row.get("Code URL", ""),
+        "data_url": row.get("Data URL", ""),
+        "award": row.get("受賞", ""),
+        "bibtex": row.get("BibTeX", ""),
+        "pdf": row.get("PDF", ""),
+        "slides": row.get("Slides", ""),
+        "poster": row.get("Poster", ""),
+        "video": row.get("Video", ""),
+        "tags": parse_tags(row),
+        "abstract": row.get("アブストラクト", ""),
+        "source_file": Path(str(source["path"])).name,
+        "source_category": str(source["category"]),
+        "source_row_number": row_number,
+        "source_record": row,
+        "draft": False,
+    }
+
+
 def load_rows(csv_path: Path) -> list[tuple[int, dict[str, str]]]:
     rows: list[tuple[int, dict[str, str]]] = []
     with csv_path.open("r", encoding="utf-8-sig", newline="") as file:
@@ -279,13 +338,8 @@ def load_rows(csv_path: Path) -> list[tuple[int, dict[str, str]]]:
     return rows
 
 
-def reset_publications_dir(target_dir: Path) -> None:
+def ensure_publications_dir(target_dir: Path) -> None:
     target_dir.mkdir(parents=True, exist_ok=True)
-    for child in target_dir.iterdir():
-        if child.is_dir():
-            shutil.rmtree(child)
-        else:
-            child.unlink()
 
 
 def write_metadata_file(target_dir: Path, metadata: dict) -> None:
@@ -303,11 +357,12 @@ def main() -> None:
         missing_text = ", ".join(str(path) for path in missing_sources)
         raise FileNotFoundError(f"CSV file not found: {missing_text}")
 
-    reset_publications_dir(PUBLICATIONS_DIR)
+    ensure_publications_dir(PUBLICATIONS_DIR)
 
     slug_counters: defaultdict[str, int] = defaultdict(int)
     count_by_bucket: Counter[str] = Counter()
     count_by_source: Counter[str] = Counter()
+    skipped_existing = 0
 
     total_rows = 0
     for source in CSV_SOURCES:
@@ -328,29 +383,23 @@ def main() -> None:
             slug_sequence = slug_counters[slug_base]
             publication_id = f"{slug_base}-{slug_sequence:02d}"
 
-            metadata = {
-                "id": publication_id,
-                "slug_base": slug_base,
-                "slug_sequence": slug_sequence,
-                "title": row.get("タイトル", ""),
-                "authors": row.get("著者", ""),
-                "venue": row.get("発行元、大会", ""),
-                "year": year,
-                "published_at": row.get("年月", ""),
-                "pages": row.get("ページ等", ""),
-                "note": row.get("備考", ""),
-                "link": row.get("リンク", ""),
-                "publication_class": publication_class,
-                "type": source["type"],
-                "year_raw": year_raw,
-                "year_detected": year_detected,
-                "source_file": source["path"].name,
-                "source_category": source["category"],
-                "source_row_number": row_number,
-                "source_record": row,
-            }
+            metadata = build_metadata(
+                publication_id=publication_id,
+                slug_base=slug_base,
+                slug_sequence=slug_sequence,
+                row=row,
+                source=source,
+                year=year,
+                year_raw=year_raw,
+                year_detected=year_detected,
+                publication_class=publication_class,
+                row_number=row_number,
+            )
 
             target_dir = PUBLICATIONS_DIR / year_bucket / publication_id
+            if target_dir.exists():
+                skipped_existing += 1
+                continue
             write_metadata_file(target_dir, metadata)
 
             total_rows += 1
@@ -364,6 +413,7 @@ def main() -> None:
     print("By year bucket:")
     for bucket_name in sorted(count_by_bucket):
         print(f"  {bucket_name}: {count_by_bucket[bucket_name]}")
+    print(f"Skipped (existing id): {skipped_existing}")
     print(f"Output directory: {PUBLICATIONS_DIR}")
 
 

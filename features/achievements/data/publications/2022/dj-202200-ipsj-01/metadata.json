@@ -10,10 +10,23 @@
   "pages": "808-816",
   "note": "",
   "link": "https://cir.nii.ac.jp/crid/1390010292699560960?lang=en",
-  "publication_class": "domestic_journal",
-  "type": "journal",
   "year_raw": "2022",
   "year_detected": true,
+  "publication_class": "domestic_journal",
+  "type": "journal",
+  "doi": "",
+  "arxiv": "",
+  "project": "",
+  "code_url": "",
+  "data_url": "",
+  "award": "",
+  "bibtex": "",
+  "pdf": "",
+  "slides": "",
+  "poster": "",
+  "video": "",
+  "tags": [],
+  "abstract": "",
   "source_file": "論文.csv",
   "source_category": "paper",
   "source_row_number": 4,
@@ -26,5 +39,6 @@
     "著者区分": "単独著者",
     "備考": "",
     "リンク": "https://cir.nii.ac.jp/crid/1390010292699560960?lang=en"
-  }
+  },
+  "draft": false
 }
