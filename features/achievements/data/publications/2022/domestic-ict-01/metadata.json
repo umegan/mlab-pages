@@ -1,0 +1,22 @@
+{
+  "id": "domestic-ict-01",
+  "slug_base": "domestic-ict",
+  "slug_sequence": 1,
+  "title": "児童の学習状況把握を目的とした手書きデータに基づく教諭向けICTツール.",
+  "authors": "高谷悠太郎,服部聖彦,松岡丈平",
+  "venue": "電子情報通信学会 教育工学研究会(ET)",
+  "year": 2022,
+  "type": "conference",
+  "year_raw": "2022.2",
+  "year_detected": true,
+  "source_file": "国内学会.csv",
+  "source_category": "domestic",
+  "source_row_number": 6,
+  "source_record": {
+    "著者": "高谷悠太郎,服部聖彦,松岡丈平",
+    "タイトル": "児童の学習状況把握を目的とした手書きデータに基づく教諭向けICTツール.",
+    "発行元、大会": "電子情報通信学会 教育工学研究会(ET)",
+    "年月": "2022.2",
+    "ページ等": ""
+  }
+}

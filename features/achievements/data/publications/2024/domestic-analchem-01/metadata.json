@@ -1,0 +1,22 @@
+{
+  "id": "domestic-analchem-01",
+  "slug_base": "domestic-analchem",
+  "slug_sequence": 1,
+  "title": "セラミックス基複合材料における小角散乱画像を用いた段階的なき裂検出",
+  "authors": "沖浦慶彦, 田中義久, 松岡丈平",
+  "venue": "第84回分析化学討論会",
+  "year": 2024,
+  "type": "conference",
+  "year_raw": "2024.5",
+  "year_detected": true,
+  "source_file": "国内学会.csv",
+  "source_category": "domestic",
+  "source_row_number": 12,
+  "source_record": {
+    "著者": "沖浦慶彦, 田中義久, 松岡丈平",
+    "タイトル": "セラミックス基複合材料における小角散乱画像を用いた段階的なき裂検出",
+    "発行元、大会": "第84回分析化学討論会",
+    "年月": "2024.5",
+    "ページ等": ""
+  }
+}

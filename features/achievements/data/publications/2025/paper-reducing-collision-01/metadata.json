@@ -1,0 +1,25 @@
+{
+  "id": "paper-reducing-collision-01",
+  "slug_base": "paper-reducing-collision",
+  "slug_sequence": 1,
+  "title": "Reducing Collision Counts at Intersections Using Reinforcement Learning-Based Adaptive Speed Control",
+  "authors": "Kaito Kumagae, Tenta Suzuki, Mao Tobisawa, Tomohiro Harada, Johei Matsuoka, Yuki Itoh, Clive Jancen Kawaoto & Kiyohiko Hattori",
+  "venue": "Springer Nature",
+  "year": 2025,
+  "type": "journal",
+  "year_raw": "2025-10",
+  "year_detected": true,
+  "source_file": "論文.csv",
+  "source_category": "paper",
+  "source_row_number": 13,
+  "source_record": {
+    "著者": "Kaito Kumagae, Tenta Suzuki, Mao Tobisawa, Tomohiro Harada, Johei Matsuoka, Yuki Itoh, Clive Jancen Kawaoto & Kiyohiko Hattori",
+    "タイトル": "Reducing Collision Counts at Intersections Using Reinforcement Learning-Based Adaptive Speed Control",
+    "発行元、大会": "Springer Nature",
+    "年月": "2025-10",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "",
+    "リンク": "https://link.springer.com/article/10.1007/s10015-025-01071-9"
+  }
+}

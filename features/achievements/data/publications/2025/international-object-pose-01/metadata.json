@@ -1,0 +1,25 @@
+{
+  "id": "international-object-pose-01",
+  "slug_base": "international-object-pose",
+  "slug_sequence": 1,
+  "title": "Object Pose Estimation Method in Close-up Viewpoints for Robots: Proposal and Validation",
+  "authors": "Hikaru Chino & Johei Matsuoka",
+  "venue": "The 2025 International Workshop on Smart Info-Media Systems in Asia (SISA2025)",
+  "year": 2025,
+  "type": "conference",
+  "year_raw": "2025-11",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 22,
+  "source_record": {
+    "著者": "Hikaru Chino & Johei Matsuoka",
+    "タイトル": "Object Pose Estimation Method in Close-up Viewpoints for Robots: Proposal and Validation",
+    "発行元、大会": "The 2025 International Workshop on Smart Info-Media Systems in Asia (SISA2025)",
+    "年月": "2025-11",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "",
+    "リンク": ""
+  }
+}

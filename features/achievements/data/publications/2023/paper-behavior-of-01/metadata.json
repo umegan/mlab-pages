@@ -1,0 +1,25 @@
+{
+  "id": "paper-behavior-of-01",
+  "slug_base": "paper-behavior-of",
+  "slug_sequence": 1,
+  "title": "Behavior Analysis of Emergent Rule Discovery for Cooperative Automated Driving Using Deep Reinforcement Learning.",
+  "authors": "Harada, Tomohiro, Johei Matsuoka, Kiyohiko Hattori",
+  "venue": "Artificial Life and Robotics 28.1",
+  "year": 2023,
+  "type": "journal",
+  "year_raw": "2023",
+  "year_detected": true,
+  "source_file": "論文.csv",
+  "source_category": "paper",
+  "source_row_number": 5,
+  "source_record": {
+    "著者": "Harada, Tomohiro, Johei Matsuoka, Kiyohiko Hattori",
+    "タイトル": "Behavior Analysis of Emergent Rule Discovery for Cooperative Automated Driving Using Deep Reinforcement Learning.",
+    "発行元、大会": "Artificial Life and Robotics 28.1",
+    "年月": "2023",
+    "ページ等": "31-42",
+    "著者区分": "共著者",
+    "備考": "",
+    "リンク": "https://www.scopus.com/pages/publications/85144147098"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "paper-intersection-traffic-01",
+  "slug_base": "paper-intersection-traffic",
+  "slug_sequence": 1,
+  "title": "Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment",
+  "authors": "Yuki Itoh, Tomohiro Harada, Jyouhei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
+  "venue": "Springer Nature",
+  "year": 2026,
+  "type": "journal",
+  "year_raw": "2026",
+  "year_detected": true,
+  "source_file": "論文.csv",
+  "source_category": "paper",
+  "source_row_number": 15,
+  "source_record": {
+    "著者": "Yuki Itoh, Tomohiro Harada, Jyouhei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
+    "タイトル": "Intersection Traffic Control with Individual Virtual Wall and Deceleration Avoidance in a Dynamic Traffic Flow Environment",
+    "発行元、大会": "Springer Nature",
+    "年月": "2026",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "採択済み、発行待ち",
+    "リンク": ""
+  }
+}

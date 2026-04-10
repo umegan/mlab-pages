@@ -1,0 +1,25 @@
+{
+  "id": "paper-automatic-counting-01",
+  "slug_base": "paper-automatic-counting",
+  "slug_sequence": 1,
+  "title": "Automatic Counting of Waiting Person Using Queue Area Detection of People Based on Machine Learning.",
+  "authors": "Ningyuan Li, Matsuoka Johei, Tago Kazuya.",
+  "venue": "革新的コンピューティング・情報・制御に関する速報-B: 応用",
+  "year": 2021,
+  "type": "journal",
+  "year_raw": "2021",
+  "year_detected": true,
+  "source_file": "論文.csv",
+  "source_category": "paper",
+  "source_row_number": 2,
+  "source_record": {
+    "著者": "Ningyuan Li, Matsuoka Johei, Tago Kazuya.",
+    "タイトル": "Automatic Counting of Waiting Person Using Queue Area Detection of People Based on Machine Learning.",
+    "発行元、大会": "革新的コンピューティング・情報・制御に関する速報-B: 応用",
+    "年月": "2021",
+    "ページ等": "603",
+    "著者区分": "責任著者",
+    "備考": "レター",
+    "リンク": "https://www.scopus.com/pages/publications/85120816885"
+  }
+}

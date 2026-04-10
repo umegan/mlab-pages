@@ -1,0 +1,25 @@
+{
+  "id": "paper-automatic-route-01",
+  "slug_base": "paper-automatic-route",
+  "slug_sequence": 1,
+  "title": "Automatic Route Design by Stepwise Subdivision of Virtual Walls —Reduces Route Length and Speeds Up Execution Time—",
+  "authors": "Yuki Itoh, Junya Hoshino,Tenta Suzuki, Kenji Matsuda, Kaito Kumagae, Mao Tobisawa, Tomohiro Harada, Jyouhei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
+  "venue": "Journal of Robotics and Mechatronics",
+  "year": 2024,
+  "type": "journal",
+  "year_raw": "2024-6-19",
+  "year_detected": true,
+  "source_file": "論文.csv",
+  "source_category": "paper",
+  "source_row_number": 9,
+  "source_record": {
+    "著者": "Yuki Itoh, Junya Hoshino,Tenta Suzuki, Kenji Matsuda, Kaito Kumagae, Mao Tobisawa, Tomohiro Harada, Jyouhei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
+    "タイトル": "Automatic Route Design by Stepwise Subdivision of Virtual Walls —Reduces Route Length and Speeds Up Execution Time—",
+    "発行元、大会": "Journal of Robotics and Mechatronics",
+    "年月": "2024-6-19",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "Rb36-3-13399 (Vol.36 No.3 に掲載)",
+    "リンク": "https://www.scopus.com/pages/publications/85201668925"
+  }
+}

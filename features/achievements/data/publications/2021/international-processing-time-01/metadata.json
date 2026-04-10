@@ -1,0 +1,25 @@
+{
+  "id": "international-processing-time-01",
+  "slug_base": "international-processing-time",
+  "slug_sequence": 1,
+  "title": "Processing Time Reduction for Non-local Median Filter.",
+  "authors": "Johei Matsuoka",
+  "venue": "20th International Symposium on Communications and Information Technologies (ISCIT), IEEE",
+  "year": 2021,
+  "type": "conference",
+  "year_raw": "2021",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 2,
+  "source_record": {
+    "著者": "Johei Matsuoka",
+    "タイトル": "Processing Time Reduction for Non-local Median Filter.",
+    "発行元、大会": "20th International Symposium on Communications and Information Technologies (ISCIT), IEEE",
+    "年月": "2021",
+    "ページ等": "",
+    "著者区分": "単独著者",
+    "備考": "",
+    "リンク": "https://www.scopus.com/pages/publications/85119599392"
+  }
+}

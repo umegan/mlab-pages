@@ -1,0 +1,25 @@
+{
+  "id": "international-virtual-wall-01",
+  "slug_base": "international-virtual-wall",
+  "slug_sequence": 1,
+  "title": "Virtual Wall Based Signal-less Intersection Control Evaluation of Robustness to Changes in the Intersection Environment",
+  "authors": "Junya Hoshino, Yuki Itoh, Tenta Suzuki, Kenji Matsuda, Kaito Kumagae, Mao Tobisawa, Tomohiro Harada, Johei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
+  "venue": "The 8th International Symposium on Swarm Behavior and Bio-Inspired Robotics 2024 (SWARM2024)",
+  "year": 2024,
+  "type": "conference",
+  "year_raw": "2024",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 11,
+  "source_record": {
+    "著者": "Junya Hoshino, Yuki Itoh, Tenta Suzuki, Kenji Matsuda, Kaito Kumagae, Mao Tobisawa, Tomohiro Harada, Johei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
+    "タイトル": "Virtual Wall Based Signal-less Intersection Control Evaluation of Robustness to Changes in the Intersection Environment",
+    "発行元、大会": "The 8th International Symposium on Swarm Behavior and Bio-Inspired Robotics 2024 (SWARM2024)",
+    "年月": "2024",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "",
+    "リンク": "https://www.swarm-systems.org/swarm2024/program"
+  }
+}
