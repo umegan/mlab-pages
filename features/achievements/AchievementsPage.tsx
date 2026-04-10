@@ -7,36 +7,33 @@ const DEFAULT_PAGE_SIZE = 10;
 const PAGE_SIZE_OPTIONS = [5, 10, 20, 50];
 const JAPANESE_CHARACTER_REGEX = /[\u3040-\u30ff\u3400-\u9fff]/;
 const PUBLICATION_CLASS_OPTIONS = [
-  { value: 'all', label: 'All' },
-  { value: 'international_conference', label: 'International Conference' },
-  { value: 'domestic_conference', label: 'Domestic Conference' },
-  { value: 'international_workshop', label: 'International Workshop' },
-  { value: 'domestic_workshop', label: 'Domestic Workshop' },
-  { value: 'international_journal', label: 'International Journal' },
-  { value: 'domestic_journal', label: 'Domestic Journal' },
-  { value: 'thesis', label: 'Thesis' },
-  { value: 'other', label: 'Other' },
+  { value: 'all', label: 'すべて (All)' },
+  { value: 'international_journal', label: '国際論文 (International Journal)' },
+  { value: 'international_conference', label: '国際学会 (International Conference)' },
+  { value: 'international_workshop', label: '国際ワークショップ (International Workshop)' },
+  { value: 'domestic_journal', label: '国内論文 (Domestic Journal)' },
+  { value: 'domestic_conference', label: '国内学会 (Domestic Conference)' },
+  { value: 'domestic_workshop', label: '国内ワークショップ (Domestic Workshop)' },
+  { value: 'other', label: 'その他 (Other)' },
 ] as const;
 type PublicationClassFilter = typeof PUBLICATION_CLASS_OPTIONS[number]['value'];
 const PUBLICATION_CLASS_LABELS: Record<PublicationClass, string> = {
-  international_conference: 'International Conference',
-  domestic_conference: 'Domestic Conference',
-  international_workshop: 'International Workshop',
-  domestic_workshop: 'Domestic Workshop',
-  international_journal: 'International Journal',
-  domestic_journal: 'Domestic Journal',
-  thesis: 'Thesis',
-  other: 'Other',
+  international_conference: '国際学会 (International Conference)',
+  domestic_conference: '国内学会 (Domestic Conference)',
+  international_workshop: '国際ワークショップ (International Workshop)',
+  domestic_workshop: '国内ワークショップ (Domestic Workshop)',
+  international_journal: '国際論文 (International Journal)',
+  domestic_journal: '国内論文 (Domestic Journal)',
+  other: 'その他 (Other)',
 };
-const PUBLICATION_CLASS_SHORT: Record<PublicationClass, string> = {
-  international_conference: 'IC',
-  domestic_conference: 'DC',
-  international_workshop: 'IW',
-  domestic_workshop: 'DW',
-  international_journal: 'IJ',
-  domestic_journal: 'DJ',
-  thesis: 'TH',
-  other: 'OT',
+const PUBLICATION_CLASS_BADGE: Record<PublicationClass, string> = {
+  international_conference: 'Intl Conf.',
+  domestic_conference: 'Domestic Conf.',
+  international_workshop: 'Intl Workshop',
+  domestic_workshop: 'Domestic Workshop',
+  international_journal: 'Intl Journal',
+  domestic_journal: 'Domestic Journal',
+  other: 'Other',
 };
 const DATE_REGEX_JA = /((?:19|20)\d{2})年(\d{1,2})月(?:\s*(\d{1,2})日)?/;
 const DATE_REGEX_FULL = /((?:19|20)\d{2})[./-](\d{1,2})[./-](\d{1,2})(?:-(\d{1,2}))?/;
@@ -153,9 +150,6 @@ function getPublicationClass(publication: Publication): PublicationClass {
     return hasJapaneseText(languageReference) ? 'domestic_conference' : 'international_conference';
   }
 
-  if (publication.type === 'thesis') {
-    return 'thesis';
-  }
   return 'other';
 }
 
@@ -327,7 +321,7 @@ export const AchievementsPage = () => {
             {/* Technology Type Filter */}
             <div>
               <h3 className="text-lg font-bold text-[#344F1F] mb-4">
-                Publication Class
+                業績区分 (Publication Class)
               </h3>
               <div className="flex flex-wrap lg:flex-col gap-2">
                 {PUBLICATION_CLASS_OPTIONS.map((option) => (
@@ -436,7 +430,7 @@ export const AchievementsPage = () => {
                             <span className="font-mono font-bold text-[#344F1F]">{getListDateLabel(pub)}</span>
                             <div className="h-4 w-px bg-[#344F1F]/20"></div>
                             <span className="bg-white border border-[#344F1F]/20 text-[#344F1F] text-xs px-2 py-1 rounded-full font-medium">
-                              {PUBLICATION_CLASS_SHORT[getPublicationClass(pub)]}
+                              {PUBLICATION_CLASS_BADGE[getPublicationClass(pub)]}
                             </span>
                             {(pub.tags ?? []).map(tag => (
                                 <span key={tag} className="bg-[#F2EAD3] text-[#344F1F] text-xs px-2 py-1 rounded-full font-medium">
@@ -536,7 +530,7 @@ export const AchievementsPage = () => {
               <div className="bg-[#F9F5F0] rounded-md px-3 py-2">
                 <span className="font-semibold text-[#344F1F]">業績区分:</span>{' '}
                 {selectedPublicationClassValue
-                  ? `${PUBLICATION_CLASS_SHORT[selectedPublicationClassValue]} (${PUBLICATION_CLASS_LABELS[selectedPublicationClassValue]})`
+                  ? PUBLICATION_CLASS_LABELS[selectedPublicationClassValue]
                   : ''}
               </div>
               {selectedNote && (

@@ -11,7 +11,6 @@ export type PublicationClass =
   | 'domestic_journal'
   | 'international_workshop'
   | 'domestic_workshop'
-  | 'thesis'
   | 'other';
 
 export interface PublicationSourceRecord {
