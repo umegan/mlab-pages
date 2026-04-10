@@ -1,0 +1,27 @@
+{
+  "id": "dc-202300-sice-01",
+  "slug_base": "dc-202300-sice",
+  "slug_sequence": 1,
+  "title": "深層強化学習を用いた大きさの異なる車両間の協調的な自動運転制御",
+  "authors": "竹中陽登,原田智広,三浦幸也,服部聖彦,松岡丈平",
+  "venue": "計測自動制御学会システム・情報部門学術講演会 2023",
+  "year": 2023,
+  "published_at": "2023",
+  "pages": "",
+  "note": "",
+  "link": "",
+  "publication_class": "domestic_conference",
+  "type": "conference",
+  "year_raw": "2023",
+  "year_detected": true,
+  "source_file": "国内学会.csv",
+  "source_category": "domestic",
+  "source_row_number": 10,
+  "source_record": {
+    "著者": "竹中陽登,原田智広,三浦幸也,服部聖彦,松岡丈平",
+    "タイトル": "深層強化学習を用いた大きさの異なる車両間の協調的な自動運転制御",
+    "発行元、大会": "計測自動制御学会システム・情報部門学術講演会 2023",
+    "年月": "2023",
+    "ページ等": ""
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "ij-202406-jrm-01",
+  "slug_base": "ij-202406-jrm",
+  "slug_sequence": 1,
+  "title": "Acquisition of Cooperative Control of Multiple Vehicles Through Reinforcement Learning Utilizing Vehicle-to-Vehicle Communication and Map Information",
+  "authors": "Tenta Suzuki, Kenji Matsuda, Kaito Kumagae, Mao Tobisawa, Junya Hoshino, Yuki Itoh, Tomohiro Harada, Jyouhei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
+  "venue": "Journal of Robotics and Mechatronics",
+  "year": 2024,
+  "published_at": "2024-6-19",
+  "pages": "",
+  "note": "Rb36-3-13398 (Vol.36 No.3 に掲載)",
+  "link": "https://www.scopus.com/pages/publications/85197352645",
+  "publication_class": "international_journal",
+  "type": "journal",
+  "year_raw": "2024-6-19",
+  "year_detected": true,
+  "source_file": "論文.csv",
+  "source_category": "paper",
+  "source_row_number": 8,
+  "source_record": {
+    "著者": "Tenta Suzuki, Kenji Matsuda, Kaito Kumagae, Mao Tobisawa, Junya Hoshino, Yuki Itoh, Tomohiro Harada, Jyouhei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
+    "タイトル": "Acquisition of Cooperative Control of Multiple Vehicles Through Reinforcement Learning Utilizing Vehicle-to-Vehicle Communication and Map Information",
+    "発行元、大会": "Journal of Robotics and Mechatronics",
+    "年月": "2024-6-19",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "Rb36-3-13398 (Vol.36 No.3 に掲載)",
+    "リンク": "https://www.scopus.com/pages/publications/85197352645"
+  }
+}

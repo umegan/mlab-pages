@@ -1,0 +1,30 @@
+{
+  "id": "iw-202511-sisa-02",
+  "slug_base": "iw-202511-sisa",
+  "slug_sequence": 2,
+  "title": "Proposal for Information Sharing Mechanism Using S-expressions for AI-based Robot Control Architecture",
+  "authors": "Wataru Mita, Kazuya Tago & Johei Matsuoka",
+  "venue": "The 2025 International Workshop on Smart Info-Media Systems in Asia (SISA2025)",
+  "year": 2025,
+  "published_at": "2025-11",
+  "pages": "",
+  "note": "",
+  "link": "",
+  "publication_class": "international_workshop",
+  "type": "conference",
+  "year_raw": "2025-11",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 23,
+  "source_record": {
+    "著者": "Wataru Mita, Kazuya Tago & Johei Matsuoka",
+    "タイトル": "Proposal for Information Sharing Mechanism Using S-expressions for AI-based Robot Control Architecture",
+    "発行元、大会": "The 2025 International Workshop on Smart Info-Media Systems in Asia (SISA2025)",
+    "年月": "2025-11",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "",
+    "リンク": ""
+  }
+}

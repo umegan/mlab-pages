@@ -1,0 +1,30 @@
+{
+  "id": "ic-202501-arob-02",
+  "slug_base": "ic-202501-arob",
+  "slug_sequence": 2,
+  "title": "Reinforcement learning-based autonomous driving control for efficient road utilization in lane-less environment",
+  "authors": "Tobisawa Mao, Kenji Matsuda, Tenta Suzuki, Tomohiro Harada, Jyunya Hoshino, Yuuki Itoh, Kaito Kumagae, Johei Matsuoka, Kiyohiko Hattori",
+  "venue": "the Joint Symposium of 30th International Symposium on Artificial Life and Robotics and 10th International Symposium on BioComplexity (AROB-ISBC 2025), pp. 113-118, 2025.",
+  "year": 2025,
+  "published_at": "2025-1",
+  "pages": "",
+  "note": "",
+  "link": "拡張論文として、論文の項目にリンクあり",
+  "publication_class": "international_conference",
+  "type": "conference",
+  "year_raw": "2025-1",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 14,
+  "source_record": {
+    "著者": "Tobisawa Mao, Kenji Matsuda, Tenta Suzuki, Tomohiro Harada, Jyunya Hoshino, Yuuki Itoh, Kaito Kumagae, Johei Matsuoka, Kiyohiko Hattori",
+    "タイトル": "Reinforcement learning-based autonomous driving control for efficient road utilization in lane-less environment",
+    "発行元、大会": "the Joint Symposium of 30th International Symposium on Artificial Life and Robotics and 10th International Symposium on BioComplexity (AROB-ISBC 2025), pp. 113-118, 2025.",
+    "年月": "2025-1",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "",
+    "リンク": "拡張論文として、論文の項目にリンクあり"
+  }
+}

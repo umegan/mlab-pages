@@ -25,6 +25,8 @@ YEAR_PATTERN = re.compile(r"(19|20)\d{2}")
 TOKEN_PATTERN = re.compile(r"[a-z0-9]+")
 ACRONYM_PATTERN = re.compile(r"[A-Za-z][A-Za-z0-9-]{1,}")
 JP_CHAR_PATTERN = re.compile(r"[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff]")
+YEAR_MONTH_PATTERN = re.compile(r"((?:19|20)\d{2})[./-](\d{1,2})")
+YEAR_MONTH_JA_PATTERN = re.compile(r"((?:19|20)\d{2})年(\d{1,2})月")
 
 STOPWORDS = {
     "the",
@@ -66,15 +68,37 @@ STOPWORDS = {
 
 MAX_SLUG_TOKEN_COUNT = 2
 MAX_SLUG_TOKEN_LENGTH = 12
-MAX_SLUG_BASE_LENGTH = 40
+MAX_SLUG_BASE_LENGTH = 48
 
-VENUE_JA_SLUG_MAP = [
+PUBLICATION_CLASS_ABBR = {
+    "international_conference": "ic",
+    "domestic_conference": "dc",
+    "international_journal": "ij",
+    "domestic_journal": "dj",
+    "international_workshop": "iw",
+    "domestic_workshop": "dw",
+    "thesis": "th",
+    "other": "ot",
+}
+
+VENUE_SHORT_MAP = [
     ("情報処理学会", "ipsj"),
     ("電子情報通信学会", "ieice"),
     ("日本ロボット学会", "rsj"),
     ("計測自動制御学会", "sice"),
     ("大学コンソーシアム八王子", "hachioji"),
     ("分析化学討論会", "analchem"),
+    ("roscon", "roscon"),
+    ("springer", "springer"),
+    ("ieee", "ieee"),
+    ("swarm", "swarm"),
+    ("arob", "arob"),
+    ("sisa", "sisa"),
+    ("jrm", "jrm"),
+    ("jaciii", "jaciii"),
+    ("journal of robotics and mechatronics", "jrm"),
+    ("artificial life and robotics", "alr"),
+    ("journal of composites science", "jcs"),
 ]
 
 
@@ -82,11 +106,27 @@ def normalize_text(value: str) -> str:
     return unicodedata.normalize("NFKC", value or "").strip()
 
 
-def detect_year(year_text: str) -> tuple[int, bool]:
-    match = YEAR_PATTERN.search(normalize_text(year_text))
-    if not match:
-        return 0, False
-    return int(match.group(0)), True
+def detect_year_month(date_text: str) -> tuple[int, int, bool]:
+    normalized = normalize_text(date_text)
+    year_month_match = YEAR_MONTH_PATTERN.search(normalized)
+    if year_month_match:
+        year = int(year_month_match.group(1))
+        month = int(year_month_match.group(2))
+        if 1 <= month <= 12:
+            return year, month, True
+
+    year_month_ja_match = YEAR_MONTH_JA_PATTERN.search(normalized)
+    if year_month_ja_match:
+        year = int(year_month_ja_match.group(1))
+        month = int(year_month_ja_match.group(2))
+        if 1 <= month <= 12:
+            return year, month, True
+
+    year_match = YEAR_PATTERN.search(normalized)
+    if year_match:
+        return int(year_match.group(0)), 0, True
+
+    return 0, 0, False
 
 
 def extract_tokens(*values: str) -> list[str]:
@@ -102,6 +142,46 @@ def extract_tokens(*values: str) -> list[str]:
 
 def contains_japanese(value: str) -> bool:
     return bool(JP_CHAR_PATTERN.search(normalize_text(value)))
+
+def infer_scope(source_category: str, row: dict[str, str]) -> str:
+    if source_category == "international":
+        return "international"
+    if source_category in {"domestic", "other"}:
+        return "domestic"
+
+    language_reference = f"{row.get('タイトル', '')} {row.get('発行元、大会', '')}"
+    return "domestic" if contains_japanese(language_reference) else "international"
+
+
+def infer_event_kind(publication_type: str, row: dict[str, str]) -> str:
+    if publication_type == "thesis":
+        return "thesis"
+    if publication_type == "workshop":
+        return "workshop"
+
+    text = f"{row.get('タイトル', '')} {row.get('発行元、大会', '')}".lower()
+    if "workshop" in text or "ワークショップ" in text:
+        return "workshop"
+    if publication_type == "journal":
+        return "journal"
+    if publication_type == "conference":
+        return "conference"
+    return "other"
+
+
+def resolve_publication_class(source_category: str, publication_type: str, row: dict[str, str]) -> str:
+    scope = infer_scope(source_category, row)
+    event_kind = infer_event_kind(publication_type, row)
+
+    if event_kind == "thesis":
+        return "thesis"
+    if event_kind == "journal":
+        return "domestic_journal" if scope == "domestic" else "international_journal"
+    if event_kind == "workshop":
+        return "domestic_workshop" if scope == "domestic" else "international_workshop"
+    if event_kind == "conference":
+        return "domestic_conference" if scope == "domestic" else "international_conference"
+    return "other"
 
 
 def pick_short_tokens(tokens: list[str], max_count: int = MAX_SLUG_TOKEN_COUNT) -> list[str]:
@@ -130,10 +210,11 @@ def extract_venue_acronym(venue: str) -> str:
             return compact[:14]
     return ""
 
-def map_japanese_venue_slug(venue: str) -> str:
+def map_venue_slug(venue: str) -> str:
     normalized = normalize_text(venue)
-    for keyword, slug in VENUE_JA_SLUG_MAP:
-        if keyword in normalized:
+    lower = normalized.lower()
+    for keyword, slug in VENUE_SHORT_MAP:
+        if keyword in normalized or keyword in lower:
             return slug
     return ""
 
@@ -148,34 +229,34 @@ def truncate_slug_base(slug_base: str) -> str:
     return slug_base[:MAX_SLUG_BASE_LENGTH].rstrip("-")
 
 
-def make_slug_base(category: str, row: dict[str, str]) -> str:
-    title = row.get("タイトル", "")
+def build_date_tag(year: int, month: int, year_detected: bool) -> str:
+    if not year_detected:
+        return "000000"
+    if 1 <= month <= 12:
+        return f"{year}{month:02d}"
+    return f"{year}00"
+
+
+def make_slug_base(publication_class: str, date_tag: str, row: dict[str, str]) -> str:
     venue = row.get("発行元、大会", "")
-    authors = row.get("著者", "")
+    title = row.get("タイトル", "")
+    class_abbr = PUBLICATION_CLASS_ABBR.get(publication_class, "ot")
 
-    title_tokens = pick_short_tokens(extract_tokens(title))
-    if title_tokens:
-        return truncate_slug_base(f"{category}-{'-'.join(title_tokens)}")
-
-    is_japanese = contains_japanese(title) or contains_japanese(venue) or contains_japanese(authors)
-    if is_japanese:
+    mapped_venue_slug = map_venue_slug(venue)
+    if mapped_venue_slug:
+        venue_part = mapped_venue_slug
+    else:
         acronym = extract_venue_acronym(venue)
         if acronym:
-            return truncate_slug_base(f"{category}-{acronym}")
-        mapped_venue_slug = map_japanese_venue_slug(venue)
-        if mapped_venue_slug:
-            return truncate_slug_base(f"{category}-{mapped_venue_slug}")
-        return f"{category}-ja-{short_hash(title, venue, authors)}"
+            venue_part = acronym[:12]
+        else:
+            venue_tokens = pick_short_tokens(extract_tokens(venue), max_count=1)
+            if venue_tokens:
+                venue_part = venue_tokens[0]
+            else:
+                venue_part = f"v{short_hash(venue, title)}"
 
-    venue_tokens = pick_short_tokens(extract_tokens(venue), max_count=1)
-    if venue_tokens:
-        return truncate_slug_base(f"{category}-{'-'.join(venue_tokens)}")
-
-    author_tokens = pick_short_tokens(extract_tokens(authors), max_count=1)
-    if author_tokens:
-        return truncate_slug_base(f"{category}-{'-'.join(author_tokens)}")
-
-    return f"{category}-entry-{short_hash(title, venue, authors)}"
+    return truncate_slug_base(f"{class_abbr}-{date_tag}-{venue_part}")
 
 
 def clean_row(row: dict[str, str | None]) -> dict[str, str]:
@@ -233,10 +314,16 @@ def main() -> None:
         source_rows = load_rows(source["path"])
         for row_number, row in source_rows:
             year_raw = row.get("年月", "")
-            year, year_detected = detect_year(year_raw)
+            year, month, year_detected = detect_year_month(year_raw)
             year_bucket = str(year) if year_detected else "others"
+            publication_class = resolve_publication_class(
+                source["category"],
+                source["type"],
+                row,
+            )
+            date_tag = build_date_tag(year, month, year_detected)
 
-            slug_base = make_slug_base(source["category"], row)
+            slug_base = make_slug_base(publication_class, date_tag, row)
             slug_counters[slug_base] += 1
             slug_sequence = slug_counters[slug_base]
             publication_id = f"{slug_base}-{slug_sequence:02d}"
@@ -249,6 +336,11 @@ def main() -> None:
                 "authors": row.get("著者", ""),
                 "venue": row.get("発行元、大会", ""),
                 "year": year,
+                "published_at": row.get("年月", ""),
+                "pages": row.get("ページ等", ""),
+                "note": row.get("備考", ""),
+                "link": row.get("リンク", ""),
+                "publication_class": publication_class,
                 "type": source["type"],
                 "year_raw": year_raw,
                 "year_detected": year_detected,

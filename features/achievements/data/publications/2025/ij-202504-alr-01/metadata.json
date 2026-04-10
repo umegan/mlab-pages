@@ -1,0 +1,30 @@
+{
+  "id": "ij-202504-alr-01",
+  "slug_base": "ij-202504-alr",
+  "slug_sequence": 1,
+  "title": "Reinforcement learning-based autonomous driving control for efficient road utilization in lane-less environment",
+  "authors": "Tobisawa Mao, Kenji Matsuda, Tenta Suzuki, Tomohiro Harada, Jyunya Hoshino, Yuuki Itoh, Kaito Kumagae, Johei Matsuoka, Kiyohiko Hattori",
+  "venue": "Artificial Life and Robotics",
+  "year": 2025,
+  "published_at": "2025-4",
+  "pages": "",
+  "note": "",
+  "link": "https://www.scopus.com/pages/publications/105000485970",
+  "publication_class": "international_journal",
+  "type": "journal",
+  "year_raw": "2025-4",
+  "year_detected": true,
+  "source_file": "論文.csv",
+  "source_category": "paper",
+  "source_row_number": 10,
+  "source_record": {
+    "著者": "Tobisawa Mao, Kenji Matsuda, Tenta Suzuki, Tomohiro Harada, Jyunya Hoshino, Yuuki Itoh, Kaito Kumagae, Johei Matsuoka, Kiyohiko Hattori",
+    "タイトル": "Reinforcement learning-based autonomous driving control for efficient road utilization in lane-less environment",
+    "発行元、大会": "Artificial Life and Robotics",
+    "年月": "2025-4",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "",
+    "リンク": "https://www.scopus.com/pages/publications/105000485970"
+  }
+}

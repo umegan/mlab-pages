@@ -1,0 +1,30 @@
+{
+  "id": "ic-202300-swarm-01",
+  "slug_base": "ic-202300-swarm",
+  "slug_sequence": 1,
+  "title": "Extending Behavior Dimensions with Curriculum Learning for Use in Astronaut Support Robots",
+  "authors": "Keita Tashiro, Jyouhei Matsuoka, Kiyohiko Hattori",
+  "venue": "6th International Symposium on Swarm Behavior and Bio-Inspired Robotics",
+  "year": 2023,
+  "published_at": "2023",
+  "pages": "1535-1539",
+  "note": "",
+  "link": "",
+  "publication_class": "international_conference",
+  "type": "conference",
+  "year_raw": "2023",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 5,
+  "source_record": {
+    "著者": "Keita Tashiro, Jyouhei Matsuoka, Kiyohiko Hattori",
+    "タイトル": "Extending Behavior Dimensions with Curriculum Learning for Use in Astronaut Support Robots",
+    "発行元、大会": "6th International Symposium on Swarm Behavior and Bio-Inspired Robotics",
+    "年月": "2023",
+    "ページ等": "1535-1539",
+    "著者区分": "共著者",
+    "備考": "",
+    "リンク": ""
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "ij-202400-jaciii-01",
+  "slug_base": "ij-202400-jaciii",
+  "slug_sequence": 1,
+  "title": "Hierarchical Reward Model of Deep Reinforcement Learning for Enhancing Cooperative Behavior in Automated Driving.",
+  "authors": "Kenji Matsuda, Tenta Suzuki, Tomohiro Harada, Johei Matsuoka, Mao Tobisawa, Jyunya Hoshino, Yuuki Itoh, Kaito Kumagae, Toshinori Kagawa, Kiyohiko Hattori",
+  "venue": "Journal of Advanced Computational Intelligence and Intelligent Informatics (JACIII)",
+  "year": 2024,
+  "published_at": "2024",
+  "pages": "431-443",
+  "note": "",
+  "link": "https://www.scopus.com/pages/publications/85189706994",
+  "publication_class": "international_journal",
+  "type": "journal",
+  "year_raw": "2024",
+  "year_detected": true,
+  "source_file": "論文.csv",
+  "source_category": "paper",
+  "source_row_number": 6,
+  "source_record": {
+    "著者": "Kenji Matsuda, Tenta Suzuki, Tomohiro Harada, Johei Matsuoka, Mao Tobisawa, Jyunya Hoshino, Yuuki Itoh, Kaito Kumagae, Toshinori Kagawa, Kiyohiko Hattori",
+    "タイトル": "Hierarchical Reward Model of Deep Reinforcement Learning for Enhancing Cooperative Behavior in Automated Driving.",
+    "発行元、大会": "Journal of Advanced Computational Intelligence and Intelligent Informatics (JACIII)",
+    "年月": "2024",
+    "ページ等": "431-443",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "",
+    "リンク": "https://www.scopus.com/pages/publications/85189706994"
+  }
+}

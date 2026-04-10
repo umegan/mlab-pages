@@ -1,0 +1,30 @@
+{
+  "id": "ic-202601-arob-01",
+  "slug_base": "ic-202601-arob",
+  "slug_sequence": 1,
+  "title": "Learning Cooperative Autonomous Driving Using Local Common Rewards Based on V2V Communication Information",
+  "authors": "Tenta Suzuki, Jouhe Matsuoka, Tomohiro Harada and Kiyohiko Hattori",
+  "venue": "31st International Symposium on Artificial Life and Robotics (AROB 31st 2026)",
+  "year": 2026,
+  "published_at": "2026-1",
+  "pages": "",
+  "note": "採択済み未発表",
+  "link": "",
+  "publication_class": "international_conference",
+  "type": "conference",
+  "year_raw": "2026-1",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 24,
+  "source_record": {
+    "著者": "Tenta Suzuki, Jouhe Matsuoka, Tomohiro Harada and Kiyohiko Hattori",
+    "タイトル": "Learning Cooperative Autonomous Driving Using Local Common Rewards Based on V2V Communication Information",
+    "発行元、大会": "31st International Symposium on Artificial Life and Robotics (AROB 31st 2026)",
+    "年月": "2026-1",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "採択済み未発表",
+    "リンク": ""
+  }
+}

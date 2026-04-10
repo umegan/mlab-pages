@@ -1,0 +1,30 @@
+{
+  "id": "ic-202510-engineering-01",
+  "slug_base": "ic-202510-engineering",
+  "slug_sequence": 1,
+  "title": "Microcrack detection with low-data: A patch-based approach",
+  "authors": "Kodai Abe, Johei Matsuoka",
+  "venue": "Engineering Conferences International, Ceramic Matrix Composites III",
+  "year": 2025,
+  "published_at": "2025-10",
+  "pages": "",
+  "note": "",
+  "link": "",
+  "publication_class": "international_conference",
+  "type": "conference",
+  "year_raw": "2025-10",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 21,
+  "source_record": {
+    "著者": "Kodai Abe, Johei Matsuoka",
+    "タイトル": "Microcrack detection with low-data: A patch-based approach",
+    "発行元、大会": "Engineering Conferences International, Ceramic Matrix Composites III",
+    "年月": "2025-10",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "",
+    "リンク": ""
+  }
+}

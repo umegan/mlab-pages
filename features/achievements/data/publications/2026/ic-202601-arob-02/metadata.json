@@ -1,0 +1,30 @@
+{
+  "id": "ic-202601-arob-02",
+  "slug_base": "ic-202601-arob",
+  "slug_sequence": 2,
+  "title": "Environment-Adaptive Dynamic Probability Exploration Strategy for Unknown Planets Using Tether-Connected Rovers",
+  "authors": "Clive Jancen Kawaoto, Kiyohiko Hattori and Johei Matsuoka",
+  "venue": "31st International Symposium on Artificial Life and Robotics (AROB 31st 2026)",
+  "year": 2026,
+  "published_at": "2026-1",
+  "pages": "",
+  "note": "採択済み未発表",
+  "link": "",
+  "publication_class": "international_conference",
+  "type": "conference",
+  "year_raw": "2026-1",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 25,
+  "source_record": {
+    "著者": "Clive Jancen Kawaoto, Kiyohiko Hattori and Johei Matsuoka",
+    "タイトル": "Environment-Adaptive Dynamic Probability Exploration Strategy for Unknown Planets Using Tether-Connected Rovers",
+    "発行元、大会": "31st International Symposium on Artificial Life and Robotics (AROB 31st 2026)",
+    "年月": "2026-1",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "採択済み未発表",
+    "リンク": ""
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "ic-202401-swarm-01",
+  "slug_base": "ic-202401-swarm",
+  "slug_sequence": 1,
+  "title": "Interchange Flow Control with Dynamic Obstacles Optimized Using Genetic Algorithms - A Concept of Virtual Walls -",
+  "authors": "Jyunya Hoshino, Yuuki Itoh, Ryuma Saotome, Tomohiro Harada, Kenji Matsuda, Tenta Suzuki, Mao Tobisawa, Kaito Kumagae, Johei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
+  "venue": "Joint Symposium: 29th International Symposium on Artificial Life and Robotics, 9th International Symposium on BioComplexity, and 7th International Symposium on Swarm Behavior and Bio-Inspired Robotics (AROB-ISBC-SWARM 2024)",
+  "year": 2024,
+  "published_at": "2024.1.24-26",
+  "pages": "",
+  "note": "",
+  "link": "拡張論文として、論文の項目にリンクあり",
+  "publication_class": "international_conference",
+  "type": "conference",
+  "year_raw": "2024.1.24-26",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 10,
+  "source_record": {
+    "著者": "Jyunya Hoshino, Yuuki Itoh, Ryuma Saotome, Tomohiro Harada, Kenji Matsuda, Tenta Suzuki, Mao Tobisawa, Kaito Kumagae, Johei Matsuoka, Toshinori Kagawa, Kiyohiko Hattori",
+    "タイトル": "Interchange Flow Control with Dynamic Obstacles Optimized Using Genetic Algorithms - A Concept of Virtual Walls -",
+    "発行元、大会": "Joint Symposium: 29th International Symposium on Artificial Life and Robotics, 9th International Symposium on BioComplexity, and 7th International Symposium on Swarm Behavior and Bio-Inspired Robotics (AROB-ISBC-SWARM 2024)",
+    "年月": "2024.1.24-26",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "",
+    "リンク": "拡張論文として、論文の項目にリンクあり"
+  }
+}

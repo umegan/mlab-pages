@@ -1,0 +1,30 @@
+{
+  "id": "ic-202200-swarm-01",
+  "slug_base": "ic-202200-swarm",
+  "slug_sequence": 1,
+  "title": "Emergent Rule Discovery for Automated Driving Using Multi-Agent Simulation.",
+  "authors": "Tomohiro Harada, Johei Matsuoka, Kiyohiko Hattori",
+  "venue": "the Joint Symposium: 27th International Symposium on Artificial Life and Robotics, 7th International Symposium on BioComplexity, and 5th International Symposium on Swarm Behavior and Bio-Inspired Robotics (AROB-ISBC-SWARM 2022)",
+  "year": 2022,
+  "published_at": "2022",
+  "pages": "1804-1809",
+  "note": "",
+  "link": "https://www.scopus.com/pages/publications/85182594897",
+  "publication_class": "international_conference",
+  "type": "conference",
+  "year_raw": "2022",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 3,
+  "source_record": {
+    "著者": "Tomohiro Harada, Johei Matsuoka, Kiyohiko Hattori",
+    "タイトル": "Emergent Rule Discovery for Automated Driving Using Multi-Agent Simulation.",
+    "発行元、大会": "the Joint Symposium: 27th International Symposium on Artificial Life and Robotics, 7th International Symposium on BioComplexity, and 5th International Symposium on Swarm Behavior and Bio-Inspired Robotics (AROB-ISBC-SWARM 2022)",
+    "年月": "2022",
+    "ページ等": "1804-1809",
+    "著者区分": "共著者",
+    "備考": "",
+    "リンク": "https://www.scopus.com/pages/publications/85182594897"
+  }
+}

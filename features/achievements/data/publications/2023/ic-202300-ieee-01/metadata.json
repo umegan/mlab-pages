@@ -1,0 +1,30 @@
+{
+  "id": "ic-202300-ieee-01",
+  "slug_base": "ic-202300-ieee",
+  "slug_sequence": 1,
+  "title": "Emergence of Cooperative Automated Driving Control at Roundabouts Using Deep Reinforcement Learning.",
+  "authors": "Reo Nakaya, Tomohiro Harada, Yukiya Miura, Kiyohiko Hattori, Johei Matsuoka",
+  "venue": "2023 62nd Annual Conference of the Society of Instrument and Control Engineers (SICE). IEEE",
+  "year": 2023,
+  "published_at": "2023",
+  "pages": "",
+  "note": "",
+  "link": "https://ieeexplore.ieee.org/document/10354212",
+  "publication_class": "international_conference",
+  "type": "conference",
+  "year_raw": "2023",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 7,
+  "source_record": {
+    "著者": "Reo Nakaya, Tomohiro Harada, Yukiya Miura, Kiyohiko Hattori, Johei Matsuoka",
+    "タイトル": "Emergence of Cooperative Automated Driving Control at Roundabouts Using Deep Reinforcement Learning.",
+    "発行元、大会": "2023 62nd Annual Conference of the Society of Instrument and Control Engineers (SICE). IEEE",
+    "年月": "2023",
+    "ページ等": "",
+    "著者区分": "共著者",
+    "備考": "",
+    "リンク": "https://ieeexplore.ieee.org/document/10354212"
+  }
+}

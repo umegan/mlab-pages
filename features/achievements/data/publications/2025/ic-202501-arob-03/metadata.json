@@ -1,0 +1,30 @@
+{
+  "id": "ic-202501-arob-03",
+  "slug_base": "ic-202501-arob",
+  "slug_sequence": 3,
+  "title": "Optimization of Vehicle Collision Avoidance Behavior by Variable Directional Sensor Control Using Reinforcement Learning",
+  "authors": "Kaito Kumagae, Mao Tobisawa, Kenji Matsuda, Tenta Suzuki, Junya Hoshino, Yuki Itoh, Johei Matsuoka, Tomohiro Harada, Kiyohiko Hattori",
+  "venue": "the Joint Symposium of 30th International Symposium on Artificial Life and Robotics and 10th International Symposium on BioComplexity (AROB-ISBC 2025), pp. 113-118, 2025.",
+  "year": 2025,
+  "published_at": "2025-1",
+  "pages": "",
+  "note": "",
+  "link": "",
+  "publication_class": "international_conference",
+  "type": "conference",
+  "year_raw": "2025-1",
+  "year_detected": true,
+  "source_file": "国際学会.csv",
+  "source_category": "international",
+  "source_row_number": 15,
+  "source_record": {
+    "著者": "Kaito Kumagae, Mao Tobisawa, Kenji Matsuda, Tenta Suzuki, Junya Hoshino, Yuki Itoh, Johei Matsuoka, Tomohiro Harada, Kiyohiko Hattori",
+    "タイトル": "Optimization of Vehicle Collision Avoidance Behavior by Variable Directional Sensor Control Using Reinforcement Learning",
+    "発行元、大会": "the Joint Symposium of 30th International Symposium on Artificial Life and Robotics and 10th International Symposium on BioComplexity (AROB-ISBC 2025), pp. 113-118, 2025.",
+    "年月": "2025-1",
+    "ページ等": "",
+    "著者区分": "筆頭著者(指導学生)",
+    "備考": "",
+    "リンク": ""
+  }
+}

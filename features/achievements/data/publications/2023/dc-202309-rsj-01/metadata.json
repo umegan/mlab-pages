@@ -1,0 +1,27 @@
+{
+  "id": "dc-202309-rsj-01",
+  "slug_base": "dc-202309-rsj",
+  "slug_sequence": 1,
+  "title": "高位行動プランニングのための地図アーキテクチャの設計と実装.",
+  "authors": "田胡 和哉,舘野 ゆらら,三田 渉,松岡丈平",
+  "venue": "第41回日本ロボット学会学術講演会(RSJ2023)",
+  "year": 2023,
+  "published_at": "2023.9",
+  "pages": "",
+  "note": "",
+  "link": "",
+  "publication_class": "domestic_conference",
+  "type": "conference",
+  "year_raw": "2023.9",
+  "year_detected": true,
+  "source_file": "国内学会.csv",
+  "source_category": "domestic",
+  "source_row_number": 8,
+  "source_record": {
+    "著者": "田胡 和哉,舘野 ゆらら,三田 渉,松岡丈平",
+    "タイトル": "高位行動プランニングのための地図アーキテクチャの設計と実装.",
+    "発行元、大会": "第41回日本ロボット学会学術講演会(RSJ2023)",
+    "年月": "2023.9",
+    "ページ等": ""
+  }
+}
