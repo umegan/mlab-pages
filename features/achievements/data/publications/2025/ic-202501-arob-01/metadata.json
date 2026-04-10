@@ -10,10 +10,23 @@
   "pages": "",
   "note": "",
   "link": "",
-  "publication_class": "international_conference",
-  "type": "conference",
   "year_raw": "2025-1",
   "year_detected": true,
+  "publication_class": "international_conference",
+  "type": "conference",
+  "doi": "",
+  "arxiv": "",
+  "project": "",
+  "code_url": "",
+  "data_url": "",
+  "award": "",
+  "bibtex": "",
+  "pdf": "",
+  "slides": "",
+  "poster": "",
+  "video": "",
+  "tags": [],
+  "abstract": "",
   "source_file": "国際学会.csv",
   "source_category": "international",
   "source_row_number": 13,
@@ -26,5 +39,6 @@
     "著者区分": "共著者",
     "備考": "",
     "リンク": ""
-  }
+  },
+  "draft": false
 }

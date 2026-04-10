@@ -10,10 +10,23 @@
   "pages": "1-4",
   "note": "",
   "link": "",
-  "publication_class": "domestic_conference",
-  "type": "conference",
   "year_raw": "2023.6",
   "year_detected": true,
+  "publication_class": "domestic_conference",
+  "type": "conference",
+  "doi": "",
+  "arxiv": "",
+  "project": "",
+  "code_url": "",
+  "data_url": "",
+  "award": "",
+  "bibtex": "",
+  "pdf": "",
+  "slides": "",
+  "poster": "",
+  "video": "",
+  "tags": [],
+  "abstract": "",
   "source_file": "国内学会.csv",
   "source_category": "domestic",
   "source_row_number": 7,
@@ -23,5 +36,6 @@
     "発行元、大会": "研究報告オーディオビジュアル複合情報処理 (AVM)",
     "年月": "2023.6",
     "ページ等": "1-4"
-  }
+  },
+  "draft": false
 }

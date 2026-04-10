@@ -10,10 +10,23 @@
   "pages": "31-34",
   "note": "",
   "link": "",
-  "publication_class": "domestic_conference",
-  "type": "conference",
   "year_raw": "2020",
   "year_detected": true,
+  "publication_class": "domestic_conference",
+  "type": "conference",
+  "doi": "",
+  "arxiv": "",
+  "project": "",
+  "code_url": "",
+  "data_url": "",
+  "award": "",
+  "bibtex": "",
+  "pdf": "",
+  "slides": "",
+  "poster": "",
+  "video": "",
+  "tags": [],
+  "abstract": "",
   "source_file": "国内学会.csv",
   "source_category": "domestic",
   "source_row_number": 3,
@@ -23,5 +36,6 @@
     "発行元、大会": "電子情報通信学会技術研究報告; 信学技報",
     "年月": "2020",
     "ページ等": "31-34"
-  }
+  },
+  "draft": false
 }
