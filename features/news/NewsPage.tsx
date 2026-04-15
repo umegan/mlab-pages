@@ -1,10 +1,14 @@
-import React, { useState, useMemo } from 'react';
-import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Search, Filter } from 'lucide-react';
+import { useState, useMemo } from 'react';
+import { ArrowRight, ExternalLink, Search, Filter } from 'lucide-react';
 import { getAllNews } from './data/loader';
-import { categoryColors, NewsItem } from './types';
+import { categoryColors } from './types';
 import { Button } from '../../components/ui/button';
 
-export const NewsPage = () => {
+interface NewsPageProps {
+  onSelectNews?: (id: string) => void;
+}
+
+export const NewsPage = ({ onSelectNews }: NewsPageProps) => {
   const allNews = getAllNews();
   
   // Filter states
@@ -38,9 +42,13 @@ export const NewsPage = () => {
     });
   }, [allNews, selectedCategory, selectedYear, searchQuery]);
 
-  const handleNewsClick = (link?: string) => {
-    if (link) {
-      window.open(link, '_blank', 'noopener,noreferrer');
+  const handleNewsClick = (id: string, fallbackLink?: string) => {
+    if (onSelectNews) {
+      onSelectNews(id);
+      return;
+    }
+    if (fallbackLink) {
+      window.open(fallbackLink, '_blank', 'noopener,noreferrer');
     }
   };
 
@@ -165,14 +173,23 @@ export const NewsPage = () => {
           </div>
         ) : (
           <div className="flex flex-col">
-            {filteredNews.map((item, index) => (
-              <div key={item.id}>
+            {filteredNews.map((item, index) => {
+              const isClickable = Boolean(onSelectNews || item.link);
+              return (
+                <div key={item.id}>
                 <div 
                   className={`group flex flex-col md:flex-row items-start md:items-center py-8 hover:bg-[#F2EAD3]/30 transition-colors px-4 -mx-4 rounded-lg ${
-                    item.link ? 'cursor-pointer' : 'cursor-default'
+                    isClickable ? 'cursor-pointer' : 'cursor-default'
                   } focus-within:ring-2 focus-within:ring-[#F4991A] focus-within:ring-offset-2`}
-                  onClick={() => handleNewsClick(item.link)}
-                  tabIndex={item.link ? 0 : undefined}
+                  onClick={() => isClickable && handleNewsClick(item.id, item.link)}
+                  tabIndex={isClickable ? 0 : undefined}
+                  onKeyDown={(event) => {
+                    if (!isClickable) return;
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      handleNewsClick(item.id, item.link);
+                    }
+                  }}
                 >
                   {/* Date */}
                   <div className="w-32 flex-shrink-0 mb-2 md:mb-0">
@@ -191,7 +208,7 @@ export const NewsPage = () => {
                   {/* Title and Summary */}
                   <div className="flex-grow">
                     <h3 className={`text-[#344F1F] font-medium text-xl transition-colors leading-tight mb-1 ${
-                      item.link ? 'group-hover:text-[#F4991A]' : ''
+                      isClickable ? 'group-hover:text-[#F4991A]' : ''
                     }`}>
                       {item.title}
                     </h3>
@@ -201,19 +218,34 @@ export const NewsPage = () => {
                   </div>
 
                   {/* Arrow - Only show if link exists */}
-                  {item.link && (
+                  {isClickable && (
                     <div className="hidden md:flex w-8 items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity text-[#F4991A]">
                       <ArrowRight className="w-5 h-5" />
-                      <ExternalLink className="w-4 h-4" />
+                      {item.link && <ExternalLink className="w-4 h-4" />}
                     </div>
                   )}
                 </div>
+                {item.link && (
+                  <div className="mt-2 flex justify-end">
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-[#344F1F]/70 hover:text-[#F4991A] transition-colors"
+                      onClick={(event) => event.stopPropagation()}
+                    >
+                      外部リンク
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                )}
                 {/* Divider */}
                 {index < filteredNews.length - 1 && (
                   <div className="h-px w-full bg-[#344F1F]/10"></div>
                 )}
-              </div>
-            ))}
+                </div>
+              );
+            })}
           </div>
         )}
       </div>

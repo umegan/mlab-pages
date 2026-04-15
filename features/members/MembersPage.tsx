@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Globe, Github, GraduationCap, Linkedin } from 'lucide-react';
 import { membersData } from './data/membersData';
