@@ -33,7 +33,7 @@ export const LabIntro = ({ onNavigate }: LabIntroProps) => {
               About Us
             </p>
             <h2 className="text-4xl sm:text-5xl font-bold text-[#344F1F] mb-8 leading-tight">
-              私たちに<br />ついて
+              私たちについて
             </h2>
             <div className="space-y-5 text-[#344F1F]/80 text-lg leading-relaxed">
               <p>
@@ -94,26 +94,6 @@ export const LabIntro = ({ onNavigate }: LabIntroProps) => {
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4">
-              {[
-                { value: '15+', label: 'メンバー' },
-                { value: '50+', label: '論文発表' },
-                { value: '10+', label: '受賞実績' },
-              ].map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.2 + i * 0.08 }}
-                  className="bg-[#344F1F] rounded-2xl p-5 text-center"
-                >
-                  <p className="text-3xl font-bold text-[#F4991A]">{stat.value}</p>
-                  <p className="text-white/80 text-sm mt-1">{stat.label}</p>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
 
         </div>
