@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Microscope } from 'lucide-react';
 
 interface FooterProps {
