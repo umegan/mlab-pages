@@ -13,6 +13,7 @@ import { LabIntro } from './features/home/components/LabIntro';
 import { NewsPage } from './features/news/NewsPage';
 import { NewsDetailPage } from './features/news/NewsDetailPage';
 import { ResearchPage } from './features/research/ResearchPage';
+import { ResearchProjectDetailPage } from './features/research/ResearchProjectDetailPage';
 import { ContactPage } from './features/contact/ContactPage';
 import { AchievementsPage } from './features/achievements/AchievementsPage';
 
@@ -89,6 +90,7 @@ function App() {
           <Route path="/news" element={<NewsPage onSelectNews={navigateToNewsDetail} />} />
           <Route path="/news/:newsId" element={<NewsDetailRoute onNavigate={handleNavigate} />} />
           <Route path="/research" element={<ResearchPage />} />
+          <Route path="/research/:projectId" element={<ResearchProjectDetailPage />} />
           <Route path="/achievements" element={<AchievementsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />

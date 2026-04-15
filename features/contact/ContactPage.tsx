@@ -20,10 +20,10 @@ export const ContactPage = () => {
             <h2 className="text-2xl font-bold text-[#344F1F]">研究室へのお問い合わせ</h2>
           </div>
           <p className="text-[#344F1F]/80 leading-relaxed mb-3">
-            研究室へのお問い合わせは、松岡先生のメールアドレス宛にご連絡ください。
+            研究室へのお問い合わせは、松岡先生にご連絡ください。
           </p>
           <p className="text-[#344F1F] font-semibold break-all">
-            松岡先生メールアドレス: {matsuokaEmail}
+            メールアドレス: {matsuokaEmail}
           </p>
         </section>
 
