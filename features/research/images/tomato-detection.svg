@@ -1,0 +1,23 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="tomatoGradient" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#FF4B4B" />
+      <stop offset="100%" stop-color="#D42020" />
+    </linearGradient>
+    <linearGradient id="leafGradient" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#6AA84F" />
+      <stop offset="100%" stop-color="#3C6E2D" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" rx="48" ry="48" fill="#F9F5F0" />
+  <g transform="translate(280 120)">
+    <ellipse cx="320" cy="280" rx="280" ry="230" fill="url(#tomatoGradient)" />
+    <path d="M201 138C184 202 189 256 245 286C285 308 352 303 392 284C428 267 455 220 450 170C447 142 412 112 375 112C343 112 310 134 285 141C263 148 221 126 201 138Z" fill="#FFF3F4" opacity="0.25" />
+    <path d="M292 3C280 33 269 57 247 72C221 88 188 90 162 108C123 135 106 173 119 210C147 266 210 297 255 282C286 272 317 255 345 230C375 203 387 163 378 126C368 88 337 56 301 44C328 20 337 -14 292 3Z" fill="url(#leafGradient)" transform="translate(84  -72) rotate(-18 227.5 166.5)" />
+    <path d="M412 38C432 58 446 86 442 115C439 145 421 172 392 184C359 198 318 197 289 178C262 161 245 133 245 102C246 74 259 47 285 32C313 15 344 8 372 18C391 25 405 34 412 38Z" fill="url(#leafGradient)" transform="translate(46 -92) rotate(10 330 70)" />
+    <circle cx="320" cy="260" r="14" fill="#FFF2F2" opacity="0.6" />
+    <circle cx="250" cy="210" r="10" fill="#FFF2F2" opacity="0.3" />
+    <circle cx="380" cy="190" r="8" fill="#FFF2F2" opacity="0.3" />
+  </g>
+  <rect x="180" y="520" width="840" height="96" rx="48" fill="#344F1F" opacity="0.08" />
+</svg>
