@@ -30,7 +30,7 @@ export const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
             className="flex-shrink-0 flex items-center cursor-pointer group"
             onClick={() => handleNavClick('home')}
           >
-            <img src={mlabLogo} alt="MLab logo" className="h-14 w-auto mr-3 object-contain" />
+            <img src={mlabLogo} alt="MLab logo" className="h-20 w-auto mr-3 object-contain" />
             <span className="text-[#344F1F] text-lg sm:text-xl font-bold tracking-tight group-hover:text-[#F4991A] transition-colors">
               ロボットビジョン・Spatial AI（松岡）研究室
             </span>
@@ -64,6 +64,17 @@ export const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
             </button>
           </div>
         </div>
+      </div>
+
+      {/* Announcement Banner */}
+      <div className="bg-[#F4991A] text-white text-xs sm:text-sm py-1.5 px-4 flex items-center justify-center gap-4 font-medium tracking-wide">
+        <span>🚧 このサイトはただいま更新中です</span>
+        <button
+          onClick={() => handleNavClick('contact')}
+          className="underline underline-offset-2 hover:opacity-80 transition-opacity whitespace-nowrap"
+        >
+          見学などのお問い合わせはこちら →
+        </button>
       </div>
 
       {/* Mobile Menu */}

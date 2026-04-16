@@ -59,7 +59,7 @@ export const NewsPage = ({ onSelectNews }: NewsPageProps) => {
   };
 
   return (
-    <div className="min-h-screen pt-20 bg-[#F9F5F0]">
+    <div className="min-h-screen pt-28 bg-[#F9F5F0]">
       {/* Header */}
       <div className="py-12 px-4 sm:px-6 lg:px-8 border-b border-[#344F1F]/10 bg-white">
         <div className="max-w-[1440px] mx-auto">

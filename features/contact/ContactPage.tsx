@@ -5,7 +5,7 @@ export const ContactPage = () => {
   const matsuokaEmail = 'matsuokajh@stf.teu.ac.jp';
 
   return (
-    <div className="min-h-screen pt-20 bg-[#F9F5F0]">
+    <div className="min-h-screen pt-28 bg-[#F9F5F0]">
       <div className="py-12 px-4 sm:px-6 lg:px-8 border-b border-[#344F1F]/10 bg-white">
         <div className="max-w-[960px] mx-auto">
           <h1 className="text-4xl sm:text-5xl font-bold text-[#344F1F] mb-4">お問い合わせ</h1>

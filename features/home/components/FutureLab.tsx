@@ -1,12 +1,20 @@
 import { motion } from 'motion/react';
+import agentImg from '../../research/images/agent.png';
+import aiWorkerImg from '../../research/images/ai_worker.png';
+import atFactoryImg from '../../research/images/at_factory.png';
+import cmcCrackImg from '../../research/images/cmc_crack.png';
+import columnDetectionImg from '../../research/images/column-detection.png';
+import drive1Img from '../../research/images/drive1.png';
+import map1Img from '../../research/images/map1.png';
 
 const labImages = [
-  'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80', // Robot in lab
-  'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&q=80', // Robotic arm working
-  'https://images.unsplash.com/photo-1563191911-e65f8655ebf9?w=600&q=80', // Student with robot
-  'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80', // Technology visualization
-  'https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=600&q=80', // AR/VR workspace
-  'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=600&q=80', // Research team
+  agentImg,
+  aiWorkerImg,
+  atFactoryImg,
+  cmcCrackImg,
+  columnDetectionImg,
+  drive1Img,
+  map1Img,
 ];
 
 export const FutureLab = () => {
@@ -50,10 +58,10 @@ export const FutureLab = () => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#F9F5F0] mb-6">
-            理論から現実へ
+            私たちの研究テーマ
           </h2>
           <p className="text-xl sm:text-2xl text-[#F9F5F0]/80 max-w-3xl mx-auto">
-            Theory to Reality
+            Our Research Areas
           </p>
         </motion.div>
 
@@ -68,7 +76,7 @@ export const FutureLab = () => {
             <div className="overflow-hidden">
               <motion.div
                 animate={{
-                  x: [0, -1800],
+                  x: [0, -2968],
                 }}
                 transition={{
                   x: {
@@ -151,10 +159,10 @@ export const FutureLab = () => {
           className="text-center mt-16"
         >
           <p className="text-lg sm:text-xl text-[#F9F5F0]/80 max-w-4xl mx-auto leading-relaxed">
-            実験の「楽しさ」と「混沌」を体験しよう。きれいな結果だけでなく、プロセスこそが研究の醍醐味です。
+            自動運転・画像認識・AIロボティクスを軸に、現実の課題を解く技術を探求しています。
           </p>
           <p className="text-md sm:text-lg text-[#F4991A] mt-4 font-bold">
-            Experience the fun and chaos of experimentation. The process is the essence of research.
+            Exploring technologies to solve real-world problems — from autonomous driving to AI robotics.
           </p>
         </motion.div>
       </div>

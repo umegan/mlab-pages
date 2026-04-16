@@ -63,7 +63,7 @@ export const ResearchProjectDetailPage = () => {
   const hasGrantInfo = Boolean(details?.grantTitle || details?.grantNumber || details?.grantCategory);
 
   return (
-    <div className="min-h-screen pt-20 bg-[#F9F5F0]">
+    <div className="min-h-screen pt-28 bg-[#F9F5F0]">
       <div className="py-12 px-4 sm:px-6 lg:px-8 border-b border-[#344F1F]/10 bg-white">
         <div className="max-w-[1440px] mx-auto">
           <Button asChild variant="outline" className="mb-6 border-[#344F1F]/20 text-[#344F1F]">

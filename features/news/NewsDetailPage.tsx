@@ -14,7 +14,7 @@ export const NewsDetailPage = ({ newsId, onNavigate }: NewsDetailPageProps) => {
 
   if (!item) {
     return (
-      <div className="min-h-screen pt-20 bg-[#F9F5F0] flex items-center justify-center">
+      <div className="min-h-screen pt-28 bg-[#F9F5F0] flex items-center justify-center">
         <div className="text-center">
           <p className="text-[#344F1F]/70 text-lg mb-4">記事が見つかりませんでした。</p>
           <button
@@ -36,7 +36,7 @@ export const NewsDetailPage = ({ newsId, onNavigate }: NewsDetailPageProps) => {
   ];
 
   return (
-    <div className="min-h-screen pt-20 bg-[#F9F5F0]">
+    <div className="min-h-screen pt-28 bg-[#F9F5F0]">
       {/* Back navigation */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <button

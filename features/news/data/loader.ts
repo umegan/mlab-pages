@@ -76,7 +76,7 @@ const newsDataMap: Record<string, NewsMetadata> = {
     title: '川崎重工 × JSK × 松岡研究室 合同交流会を開催',
     date: '2026.03.23',
     category: 'Event',
-    image: '/images/news-007/kawasaki-exchange-1.jpg',
+    image: '/images/news-007/20260323_kai.jpg',
     images: ['/images/news-007/kawasaki-exchange-2.jpg'],
     summary: `2026年3月23日、東京工科大学 松岡研究室にて、川崎重工業株式会社・東京大学 情報システム工学研究室（JSK）・松岡研究室の三者による合同交流会を開催しました。
 
