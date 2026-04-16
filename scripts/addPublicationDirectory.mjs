@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 
 /**
- * 研究業績追加スクリプト（ディレクトリベース）
  * Add Publication Script (Directory-based)
- * 
- * 使い方 / Usage:
+ * Usage:
  *   node scripts/addPublicationDirectory.mjs
  */
 
@@ -18,93 +16,117 @@ const __dirname = dirname(__filename);
 
 const rl = createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
 const question = (query) => new Promise((resolve) => rl.question(query, resolve));
 
 const PUBLICATION_TYPES = ['journal', 'conference', 'workshop', 'thesis'];
 
+async function ensureDirectoryDoesNotExist(dirPath, id) {
+  try {
+    await fs.access(dirPath);
+    throw new Error(`Directory already exists for ID '${id}'. Choose another ID.`);
+  } catch (error) {
+    if (error && error.code === 'ENOENT') {
+      return;
+    }
+    throw error;
+  }
+}
+
+async function ensurePublicationIdIsUnique(baseDir, id) {
+  let entries = [];
+  try {
+    entries = await fs.readdir(baseDir, { withFileTypes: true });
+  } catch (error) {
+    if (error && error.code === 'ENOENT') {
+      return;
+    }
+    throw error;
+  }
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+
+    if (entry.name === id) {
+      throw new Error(`Directory already exists for ID '${id}'. Choose another ID.`);
+    }
+
+    const nestedPath = join(baseDir, entry.name, id);
+    try {
+      await fs.access(nestedPath);
+      throw new Error(`Directory already exists for ID '${id}'. Choose another ID.`);
+    } catch (error) {
+      if (error && error.code === 'ENOENT') {
+        continue;
+      }
+      throw error;
+    }
+  }
+}
+
 async function main() {
-  console.log('\n📚 研究業績追加ツール / Add Publication Tool\n');
-  console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
+  console.log('\nAdd Publication Tool\n');
+  console.log('----------------------------------------------\n');
 
   try {
-    // IDの入力
-    const id = await question('ID (例: pub-009): ');
-    if (!id || !id.trim()) {
-      throw new Error('IDは必須です / ID is required');
+    const idInput = await question('ID (e.g. pub-009): ');
+    const id = idInput.trim();
+    if (!id) {
+      throw new Error('ID is required');
     }
 
-    // タイトルの入力
-    const title = await question('論文タイトル / Paper Title: ');
-    if (!title || !title.trim()) {
-      throw new Error('タイトルは必須です / Title is required');
+    const title = (await question('Paper title: ')).trim();
+    if (!title) {
+      throw new Error('Title is required');
     }
 
-    // 著者の入力
-    const authors = await question('著者 / Authors (カンマ区切り): ');
-    if (!authors || !authors.trim()) {
-      throw new Error('著者は必須です / Authors are required');
+    const authors = (await question('Authors (comma separated): ')).trim();
+    if (!authors) {
+      throw new Error('Authors are required');
     }
 
-    // 会議名/論文誌名の入力
-    const venue = await question('会議名・論文誌名 / Venue: ');
-    if (!venue || !venue.trim()) {
-      throw new Error('会議名・論文誌名は必須です / Venue is required');
+    const venue = (await question('Venue (conference/journal): ')).trim();
+    if (!venue) {
+      throw new Error('Venue is required');
     }
 
-    // 年の入力
-    const yearInput = await question('発表年 / Year (例: 2024): ');
-    const year = parseInt(yearInput);
-    if (isNaN(year) || year < 1900 || year > 2100) {
-      throw new Error('無効な年 / Invalid year');
+    const yearInput = (await question('Year (e.g. 2024): ')).trim();
+    const year = Number.parseInt(yearInput, 10);
+    if (Number.isNaN(year) || year < 1900 || year > 2100) {
+      throw new Error('Invalid year');
     }
 
-    // タイプの選択
-    console.log('\n発表タイプ / Publication Type:');
+    console.log('\nPublication type:');
     PUBLICATION_TYPES.forEach((type, index) => {
       console.log(`  ${index + 1}. ${type}`);
     });
-    const typeIndex = await question('番号を選択 / Select number (1-4): ');
-    const type = PUBLICATION_TYPES[parseInt(typeIndex) - 1];
+
+    const typeIndexInput = (await question('Select number (1-4): ')).trim();
+    const type = PUBLICATION_TYPES[Number.parseInt(typeIndexInput, 10) - 1];
     if (!type) {
-      throw new Error('無効なタイプ / Invalid type');
+      throw new Error('Invalid publication type');
     }
 
-    // DOI（オプション）
-    const doi = await question('DOI (オプション / optional): ');
+    const doi = (await question('DOI (optional): ')).trim();
+    const arxiv = (await question('arXiv ID (optional): ')).trim();
+    const abstract = (await question('Abstract (optional): ')).trim();
 
-    // arXiv（オプション）
-    const arxiv = await question('arXiv ID (オプション / optional): ');
+    const tagsInput = (await question('Tech tags (comma separated, optional): ')).trim();
+    const tags = tagsInput
+      ? tagsInput.split(',').map((tag) => tag.trim()).filter(Boolean)
+      : undefined;
 
-    // Abstract（オプション）
-    const abstract = await question('概要 / Abstract (オプション / optional): ');
+    const project = (await question('Project (optional): ')).trim();
+    const code_url = (await question('Code URL (optional): ')).trim();
+    const data_url = (await question('Data URL (optional): ')).trim();
+    const video = (await question('Video URL (optional): ')).trim();
+    const award = (await question('Award (optional): ')).trim();
 
-    // タグの入力（オプション）
-    const tagsInput = await question('技術タグ / Tech Tags (カンマ区切り, オプション): ');
-    const tags = tagsInput ? tagsInput.split(',').map(t => t.trim()).filter(Boolean) : undefined;
+    const draftInput = (await question('Save as draft? (y/N): ')).trim().toLowerCase();
+    const draft = draftInput === 'y' || draftInput === 'yes' ? true : undefined;
 
-    // プロジェクト（オプション）
-    const project = await question('プロジェクト / Project (オプション): ');
-
-    // Code URL（オプション）
-    const code_url = await question('コードURL / Code URL (オプション): ');
-
-    // Data URL（オプション）
-    const data_url = await question('データURL / Data URL (オプション): ');
-
-    // Video URL（オプション）
-    const video = await question('動画URL / Video URL (オプション): ');
-
-    // Award（オプション）
-    const award = await question('受賞 / Award (オプション): ');
-
-    // 下書きフラグ（オプション）
-    const draftInput = await question('下書きとして保存? / Save as draft? (y/N): ');
-    const draft = draftInput.toLowerCase() === 'y' || draftInput.toLowerCase() === 'yes' ? true : undefined;
-
-    // メタデータオブジェクトの作成
     const metadata = {
       title,
       authors,
@@ -123,66 +145,26 @@ async function main() {
       ...(draft && { draft }),
     };
 
-    // ディレクトリパスの設定
-    const pubDir = join(__dirname, '..', 'features', 'achievements', 'data', 'publications', id.trim());
-    
-    // ディレクトリの作成
+    const publicationsRootDir = join(__dirname, '..', 'features', 'achievements', 'data', 'publications');
+    await fs.mkdir(publicationsRootDir, { recursive: true });
+    await ensurePublicationIdIsUnique(publicationsRootDir, id);
+
+    const pubDir = join(publicationsRootDir, String(year), id);
+    await ensureDirectoryDoesNotExist(pubDir, id);
     await fs.mkdir(pubDir, { recursive: true });
 
-    // metadata.json の保存
     const metadataPath = join(pubDir, 'metadata.json');
-    await fs.writeFile(metadataPath, JSON.stringify(metadata, null, 2), 'utf8');
+    await fs.writeFile(metadataPath, `${JSON.stringify(metadata, null, 2)}\n`, 'utf8');
 
-    // README.md の作成
-    const readmePath = join(pubDir, 'README.md');
-    const readme = `# ${title}
-
-## メタデータ / Metadata
-
-このディレクトリには以下のファイルを配置できます：
-You can place the following files in this directory:
-
-- \`metadata.json\` - 必須のメタデータ / Required metadata (✅ Created)
-- \`paper.pdf\` - 論文PDF / Paper PDF (optional)
-- \`slides.pdf\` / \`slides.pptx\` - スライド / Slides (optional)
-- \`poster.pdf\` / \`poster.jpg\` - ポスター / Poster (optional)
-- \`bibtex.bib\` - BibTeX ファイル / BibTeX file (optional)
-- \`thumbnail.jpg\` - サムネイル画像 / Thumbnail image (optional)
-
-## ファイル構成例 / Example File Structure
-
-\`\`\`
-${id}/
-├── metadata.json
-├── paper.pdf
-├── slides.pdf
-├── poster.jpg
-├── bibtex.bib
-└── README.md
-\`\`\`
-
-## 使い方 / Usage
-
-\`metadata.json\` を編集して、論文の情報を更新できます。
-PDF、スライド、ポスターなどのファイルを追加する場合は、このディレクトリに配置してください。
-
-You can edit \`metadata.json\` to update the publication information.
-If you want to add PDF, slides, poster, etc., place them in this directory.
-`;
-    await fs.writeFile(readmePath, readme, 'utf8');
-
-    // loaderファイルの更新通知
-    console.log('\n✅ 研究業績が正常に作成されました！ / Publication created successfully!\n');
-    console.log(`📁 ディレクトリ / Directory: ${pubDir}`);
-    console.log(`📄 メタデータ / Metadata: ${metadataPath}\n`);
-    console.log('⚠️  次のステップ / Next Step:');
-    console.log('   /features/achievements/data/loader.ts を開いて、');
-    console.log('   publicationsDataMap に新しいエントリを追加してください。\n');
-    console.log('   Open /features/achievements/data/loader.ts and');
-    console.log('   add a new entry to publicationsDataMap.\n');
-
+    console.log('\nPublication created successfully.\n');
+    console.log(`Directory: ${pubDir}`);
+    console.log(`Metadata: ${metadataPath}\n`);
+    console.log('Next step:');
+    console.log('1. Edit metadata.json if needed.');
+    console.log('2. Place files (paper/slides/poster) in the same directory if needed.');
+    console.log('3. loader.ts updates are automatic.\n');
   } catch (error) {
-    console.error('\n❌ エラー / Error:', error.message);
+    console.error(`\nError: ${error.message}`);
   } finally {
     rl.close();
   }

@@ -1,9 +1,0 @@
-{
-  "title": "Generative Models for Synthetic Data Creation in Industrial Settings",
-  "authors": "Takumi Watanabe, Prof. Matsuoka",
-  "venue": "NeurIPS Workshop on Generative AI",
-  "year": 2021,
-  "type": "workshop",
-  "tags": ["Image Processing", "Digital Twin"],
-  "abstract": "We present generative models for creating high-quality synthetic training data for industrial applications."
-}

@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "import:publications:csv": "node scripts/importPublicationsFromCsv.mjs --csv research_data.csv"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.0",
@@ -50,7 +51,9 @@
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.72.1",
     "react-resizable-panels": "^2.1.3",
+    "react-router-dom": "^6.30.3",
     "recharts": "^2.12.7",
     "sonner": "^1.5.0",
     "tailwind-merge": "^2.6.1",

@@ -1,9 +1,0 @@
-{
-  "title": "Human-Robot Collaboration in Shared Workspaces using Behavior Prediction",
-  "authors": "Emi Kato, Prof. Matsuoka",
-  "venue": "International Conference on Human-Robot Interaction (HRI)",
-  "year": 2023,
-  "type": "conference",
-  "tags": ["Robot Vision", "ROS"],
-  "abstract": "This work explores safe human-robot collaboration through predictive behavior modeling."
-}

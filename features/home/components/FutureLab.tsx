@@ -1,6 +1,4 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { Zap } from 'lucide-react';
 
 const labImages = [
   'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80', // Robot in lab
