@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { useState } from 'react';
+import { motion } from 'motion/react';
 import { Eye, Brain, Navigation } from 'lucide-react';
 
 const axes = [

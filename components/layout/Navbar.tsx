@@ -13,7 +13,6 @@ export const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
     { label: 'ニュース', route: 'news' },
     { label: '研究', route: 'research' },
     { label: '業績', route: 'achievements' },
-    { label: 'メンバー', route: 'members' },
     { label: 'お問い合わせ', route: 'contact' }
   ];
 
